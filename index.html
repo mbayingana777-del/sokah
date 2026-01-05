@@ -32,15 +32,15 @@ body {
   object-fit: cover;
 }
 .hero-overlay {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0 2rem;
-  height: 100%;
 }
 .hero-overlay h1 {
   font-size: 3rem;
@@ -63,14 +63,6 @@ body {
 }
 .hero-overlay a:hover {
   background: #ddd;
-}
-#sound-btn {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 1rem;
 }
 
 /* ---------- STORY ---------- */
@@ -188,19 +180,42 @@ footer {
 <body>
 
 <!-- HERO VIDEO -->
-<section class="hero">
-  <video id="hero-video" autoplay muted loop playsinline>
+<section class="hero" style="position:relative; width:100%; height:100vh; overflow:hidden;">
+  <!-- Video background -->
+  <video id="hero-video" autoplay muted loop playsinline
+         style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
     <source src="clipped-segment.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
-  <div class="hero-overlay">
+  <!-- Overlay text -->
+  <div class="hero-overlay" style="position:relative; z-index:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 2rem; height:100%;">
     <h1>Caribbean Smoke. Legendary Brisket.</h1>
     <p>Slow-smoked over local oak and cherry, infused with island flavor.</p>
     <a href="#menu">Taste the Caribbean</a>
-    <button id="sound-btn">🔊 Unmute</button>
+    
+    <!-- Optional Unmute Button -->
+    <button id="sound-btn" style="margin-top:1rem; padding:0.5rem 1rem; border:none; border-radius:20px; cursor:pointer; font-size:1rem;">
+      🔊 Unmute
+    </button>
   </div>
 </section>
+
+<script>
+  // Unmute button functionality
+  const btn = document.getElementById("sound-btn");
+  const video = document.getElementById("hero-video");
+
+  btn.addEventListener("click", () => {
+    if(video.muted){
+      video.muted = false;
+      btn.textContent = "🔇 Mute";
+    } else {
+      video.muted = true;
+      btn.textContent = "🔊 Unmute";
+    }
+  });
+</script>
 
 <!-- STORY -->
 <section class="story">
@@ -251,21 +266,8 @@ footer {
   &copy; 2026 Sokah Caribbean BBQ — Crafted with passion in Ambridge, PA
 </footer>
 
-<script>
-  // Unmute button
-  const btn = document.getElementById("sound-btn");
-  const video = document.getElementById("hero-video");
-
-  btn.addEventListener("click", () => {
-    if(video.muted){
-      video.muted = false;
-      btn.textContent = "🔇 Mute";
-    } else {
-      video.muted = true;
-      btn.textContent = "🔊 Unmute";
-    }
-  });
-</script>
+</body>
+</html>
 
 </body>
 </html>
