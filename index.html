@@ -1,52 +1,249 @@
+Sokah 2nd draft
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sokah Caribbean BBQ</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sokah Caribbean BBQ</title>
+
+<style>
+/* ---------- GLOBAL ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+.hero-overlay h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+.hero-overlay p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+.hero-overlay a {
+  background: #fff;
+  color: #000;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 40px;
+  transition: background 0.3s;
+}
+.hero-overlay a:hover {
+  background: #ddd;
+}
+
+/* ---------- STORY ---------- */
+.story {
+  min-height: 100vh;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.story img {
+  width: 320px;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+.story h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.story p {
+  max-width: 600px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* ---------- MENU ---------- */
+.menu {
+  background: #000;
+  padding: 5rem 2rem;
+}
+.menu h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+.menu-item {
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.menu-item:hover {
+  transform: translateY(-8px);
+}
+.menu-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.menu-item div {
+  padding: 1.2rem;
+}
+.menu-item h3 {
+  margin-bottom: 0.5rem;
+}
+.menu-item p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* ---------- CTA ---------- */
+.cta {
+  min-height: 70vh;
+  background: linear-gradient(135deg, #7a0c0c, #000);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.cta p {
+  max-width: 500px;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+.cta a {
+  background: #fff;
+  color: #000;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 40px;
+  transition: background 0.3s;
+}
+.cta a:hover {
+  background: #ddd;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #111;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+</style>
 </head>
+
 <body>
 
-<!-- HERO -->
+<!-- HERO VIDEO -->
 <section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>Sokah Caribbean BBQ</h1>
-    <p>Bold flavors. Real smoke. Caribbean soul.</p>
-    <a href="https://sokahbbq.com" class="btn">Order Online</a>
+  <video autoplay muted loop playsinline>
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay">
+    <h1>Caribbean Smoke. Legendary Brisket.</h1>
+    <p>Slow-smoked over local oak and cherry, infused with island flavor.</p>
+    <a href="#menu">Taste the Caribbean</a>
   </div>
 </section>
 
-<!-- PHOTO SHOWCASE -->
-<section class="gallery">
-  <img src="images/food1.jpg" alt="Caribbean BBQ">
-  <img src="images/food2.jpg" alt="BBQ Plate">
-  <img src="images/food3.jpg" alt="Loaded Fries">
-  <img src="images/food4.jpg" alt="Smoked Meat">
+<!-- STORY -->
+<section class="story">
+  <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Chefs preparing Caribbean BBQ">
+  <h2>From Our Pit to Your Plate</h2>
+  <p>
+    Sokah Caribbean BBQ is more than a restaurant — it’s a tradition. Our oak and cherry smoked briskets are crafted with passion, inspired by Caribbean flavors, and served with love to our community. Every cut tells a story of fire, smoke, and island soul.
+  </p>
 </section>
 
-<!-- FEATURE SECTION -->
-<section class="features">
-  <div class="feature">
-    <h3>Slow-Smoked</h3>
-    <p>Cooked low and slow for real depth of flavor.</p>
-  </div>
-  <div class="feature">
-    <h3>Caribbean Roots</h3>
-    <p>Island spices. Bold sauces. No shortcuts.</p>
-  </div>
-  <div class="feature">
-    <h3>Local Favorite</h3>
-    <p>Proudly serving Ambridge, PA.</p>
+<!-- MENU -->
+<section id="menu" class="menu">
+  <h2>Our Signature Dishes</h2>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187" alt="Caribbean Smoked Brisket">
+      <div>
+        <h3>Oak & Cherry Smoked Brisket</h3>
+        <p>Slow-cooked to perfection with bold Caribbean spices and smoked over local wood for unmatched flavor.</p>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe" alt="Island-style Sides">
+      <div>
+        <h3>Island-Inspired Sides</h3>
+        <p>From tangy slaw to jerk-seasoned veggies, each side complements our signature brisket perfectly.</p>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187" alt="Dessert">
+      <div>
+        <h3>Rum-Glazed Desserts</h3>
+        <p>Sweet endings that balance the smoky richness and bring a taste of the Caribbean to every bite.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- CALL TO ACTION -->
 <section class="cta">
-  <h2>Hungry Yet?</h2>
-  <a href="https://sokahbbq.com" class="btn dark">Order Now</a>
+  <h2>Bring the Island Smoke Home</h2>
+  <p>Order today and experience the craft, flavor, and soul of Sokah Caribbean BBQ — as seen on local news!</p>
+  <a href="https://example.com" target="_blank">Order Now</a>
 </section>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2026 Sokah Caribbean BBQ — Crafted with passion in Ambridge, PA
+</footer>
+
+</body>
+</html>
 
 <script src="script.js"></script>
 </body>
