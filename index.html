@@ -179,43 +179,25 @@ footer {
 
 <body>
 
-<!-- HERO VIDEO -->
 <section class="hero" style="position:relative; width:100%; height:100vh; overflow:hidden;">
-  <!-- Video background -->
-  <video id="hero-video" autoplay muted loop playsinline
-         style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
-    <source src="clipped-segment.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <!-- YouTube background -->
+  <iframe
+    id="hero-video"
+    src="https://www.youtube.com/embed/fFi_uzU1_pY?autoplay=1&mute=1&start=166&end=189&controls=0&loop=1&playlist=fFi_uzU1_pY&modestbranding=1&rel=0"
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    allowfullscreen
+    style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+  </iframe>
 
   <!-- Overlay text -->
   <div class="hero-overlay" style="position:relative; z-index:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 2rem; height:100%;">
     <h1>Caribbean Smoke. Legendary Brisket.</h1>
     <p>Slow-smoked over local oak and cherry, infused with island flavor.</p>
     <a href="#menu">Taste the Caribbean</a>
-    
-    <!-- Optional Unmute Button -->
-    <button id="sound-btn" style="margin-top:1rem; padding:0.5rem 1rem; border:none; border-radius:20px; cursor:pointer; font-size:1rem;">
-      🔊 Unmute
-    </button>
+    <button id="sound-btn" style="margin-top:1rem; padding:0.5rem 1rem; border:none; border-radius:20px; cursor:pointer; font-size:1rem;">🔊 Unmute</button>
   </div>
 </section>
-
-<script>
-  // Unmute button functionality
-  const btn = document.getElementById("sound-btn");
-  const video = document.getElementById("hero-video");
-
-  btn.addEventListener("click", () => {
-    if(video.muted){
-      video.muted = false;
-      btn.textContent = "🔇 Mute";
-    } else {
-      video.muted = true;
-      btn.textContent = "🔊 Unmute";
-    }
-  });
-</script>
 
 <!-- STORY -->
 <section class="story">
