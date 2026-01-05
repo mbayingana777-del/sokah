@@ -32,15 +32,15 @@ body {
   object-fit: cover;
 }
 .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0 2rem;
+  height: 100%;
 }
 .hero-overlay h1 {
   font-size: 3rem;
@@ -63,6 +63,14 @@ body {
 }
 .hero-overlay a:hover {
   background: #ddd;
+}
+#sound-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 /* ---------- STORY ---------- */
@@ -179,6 +187,7 @@ footer {
 
 <body>
 
+<!-- HERO VIDEO -->
 <section class="hero" style="position:relative; width:100%; height:100vh; overflow:hidden;">
   <!-- YouTube background -->
   <iframe
@@ -191,11 +200,14 @@ footer {
   </iframe>
 
   <!-- Overlay text -->
- <div class="hero-overlay" style="position:relative; z-index:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 2rem; height:100%;">
-  <h1>Smoke That Feels Like Home</h1>
-  <p>Brisket slow-smoked over oak and cherry, rubbed with spices passed down through generations, bursting with the flavors of the Caribbean.</p>
-  <a href="#menu">Taste the Caribbean</a>
-</div>
+  <div class="hero-overlay" style="position:relative; z-index:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 2rem; height:100%;">
+    <h1>Caribbean Smoke. Legendary Brisket.</h1>
+    <p>Slow-smoked over local oak and cherry, infused with island flavor.</p>
+    <a href="#menu">Taste the Caribbean</a>
+    <button id="sound-btn" style="margin-top:1rem; padding:0.5rem 1rem; border:none; border-radius:20px; cursor:pointer; font-size:1rem;">🔊 Unmute</button>
+  </div>
+</section>
+
 
 <!-- STORY -->
 <section class="story">
@@ -205,7 +217,6 @@ footer {
     Sokah Caribbean BBQ is more than a restaurant — it’s a tradition. Our oak and cherry smoked briskets are crafted with passion, inspired by Caribbean flavors, and served with love to our community. Every cut tells a story of fire, smoke, and island soul.
   </p>
 </section>
-
 
 <!-- MENU -->
 <section id="menu" class="menu">
@@ -247,8 +258,21 @@ footer {
   &copy; 2026 Sokah Caribbean BBQ — Crafted with passion in Ambridge, PA
 </footer>
 
-</body>
-</html>
+<script>
+  // Unmute button
+  const btn = document.getElementById("sound-btn");
+  const video = document.getElementById("hero-video");
+
+  btn.addEventListener("click", () => {
+    if(video.muted){
+      video.muted = false;
+      btn.textContent = "🔇 Mute";
+    } else {
+      video.muted = true;
+      btn.textContent = "🔊 Unmute";
+    }
+  });
+</script>
 
 </body>
 </html>
