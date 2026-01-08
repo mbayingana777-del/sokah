@@ -45,6 +45,7 @@ body {
   text-align: center;
   padding: 0 2rem;
   height: 100%;
+  background: rgba(0,0,0,0.4); /* subtle overlay for readability */
 }
 .hero-overlay h1 {
   font-size: 3rem;
@@ -69,7 +70,7 @@ body {
   background: #ddd;
 }
 
-/* ---------- FULL MENU GRID ---------- */
+/* ---------- MENU GRID ---------- */
 .menu {
   background: #111;
   padding: 5rem 2rem;
@@ -79,27 +80,32 @@ body {
   font-size: 2.5rem;
   margin-bottom: 3rem;
 }
-.menu-grid {
+.menu-items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: auto;
-  grid-auto-flow: dense;
 }
 .menu-item {
   background: #222;
-  padding: 1.5rem 1rem;
   border-radius: 12px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 180px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .menu-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 20px rgba(255,255,255,0.2);
+}
+.menu-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.menu-item-content {
+  padding: 1rem 1.5rem;
 }
 .menu-item h3 {
   margin-bottom: 0.5rem;
@@ -113,7 +119,7 @@ body {
 
 /* ---------- CTA ---------- */
 .cta {
-  min-height: 50vh;
+  min-height: 70vh;
   background: linear-gradient(135deg, #7a0c0c, #000);
   display: flex;
   flex-direction: column;
@@ -173,77 +179,71 @@ footer {
 </section>
 
 <!-- FULL MENU GRID -->
-<section class="menu" id="menu-grid">
+<section id="menu-grid" class="menu">
   <h2>Our Best Menu Items</h2>
+  <div class="menu-items">
+    <div class="menu-item">
+      <img src="images/hushpippies.jpg" alt="Hushpippies">
+      <div class="menu-item-content">
+        <h3>Hushpippies</h3>
+        <p>Fried shrimp tossed in a habanero mango sauce and served with smoky ranch.</p>
+      </div>
+    </div>
 
-  <div class="menu-grid">
     <div class="menu-item">
-      <h3>Hushpippies — $8</h3>
-      <p>Fried shrimp tossed in a habanero mango sauce and served with smoky ranch.</p>
+      <img src="images/whole_smoked_wings.jpg" alt="Whole Smoked Wings">
+      <div class="menu-item-content">
+        <h3>Whole Smoked Wings</h3>
+        <p>3 each or 8 each tossed in your choice of jerk BBQ, dry jerk, habanero mango, Bahamian gold, or Mo Fire sauce.</p>
+      </div>
     </div>
+
     <div class="menu-item">
-      <h3>Whole Smoked Wings — $10 / $18</h3>
-      <p>3 each or 8 each tossed in your choice of jerk BBQ, dry jerk, habanero mango, Bahamian gold, or Mo Fire sauce.</p>
+      <img src="images/brisket_cheesesteak.jpg" alt="Brisket Cheesesteak">
+      <div class="menu-item-content">
+        <h3>Brisket Cheesesteak</h3>
+        <p>Chopped brisket, sautéed peppers and onions, 5 cheese blend.</p>
+      </div>
     </div>
+
     <div class="menu-item">
-      <h3>Brisket Cheesesteak</h3>
-      <p>Chopped brisket, sautéed peppers and onions, 5 cheese blend.</p>
+      <img src="images/pork_sandwich.jpg" alt="Pork Sandwich">
+      <div class="menu-item-content">
+        <h3>Pork Sandwich</h3>
+        <p>Pulled pork, coleslaw, Bahamian Gold BBQ sauce, on a potato roll bun.</p>
+      </div>
     </div>
+
     <div class="menu-item">
-      <h3>Pork Sandwich</h3>
-      <p>Pulled pork, coleslaw, Bahamian Gold BBQ sauce, on a potato roll bun.</p>
+      <img src="images/smoked_quesadilla.jpg" alt="Smoked Quesadilla">
+      <div class="menu-item-content">
+        <h3>Smoked Quesadilla</h3>
+        <p>Peppers and onions smothered in cheese in a pressed tortilla.</p>
+      </div>
     </div>
+
     <div class="menu-item">
-      <h3>Smoked Quesadilla</h3>
-      <p>Peppers and onions smothered in cheese in a pressed tortilla.</p>
+      <img src="images/jerk_chicken_hoagie.jpg" alt="Jerk Chicken Hoagie">
+      <div class="menu-item-content">
+        <h3>Jerk Chicken Hoagie</h3>
+        <p>Jerk chicken, aged cheddar, lettuce, mango salsa, with jerk BBQ sauce on a hoagie bun.</p>
+      </div>
     </div>
+
     <div class="menu-item">
-      <h3>Jerk Chicken Hoagie</h3>
-      <p>Jerk chicken, aged cheddar, lettuce, mango salsa, with jerk BBQ sauce on a hoagie bun.</p>
+      <img src="images/soul_bowl.jpg" alt="Soul Bowl">
+      <div class="menu-item-content">
+        <h3>Soul Bowl</h3>
+        <p>Mac and cheese base with collard greens, jerk BBQ sauce, and a piece of cornbread. Add meat as desired.</p>
+      </div>
     </div>
+
     <div class="menu-item">
-      <h3>All American Burger</h3>
-      <p>2 ground brisket patties, Sokah smashed sauce, American cheese, onion, pickles.</p>
-    </div>
-    <div class="menu-item">
-      <h3>Soul Bowl</h3>
-      <p>Mac and cheese base with collard greens, jerk BBQ sauce, and a piece of cornbread. Add meat: jerk chicken, pulled pork, turkey, brisket, or oxtail.</p>
-    </div>
-    <div class="menu-item">
-      <h3>Bahama Bowl</h3>
-      <p>Red beans and rice base with fried cabbage, pickled red onions, and smoky ranch on top. Add meat as desired.</p>
-    </div>
-    <div class="menu-item">
-      <h3>Swai Catfish</h3>
-      <p>Crispy fried swai catfish served with your choice of sides.</p>
-    </div>
-    <div class="menu-item">
-      <h3>Rock Shrimp</h3>
-      <p>Lightly fried rock shrimp, perfect with smoky ranch dipping sauce.</p>
-    </div>
-    <div class="menu-item">
-      <h3>Calamari</h3>
-      <p>Crispy calamari with a touch of island spice.</p>
-    </div>
-    <div class="menu-item">
-      <h3>Combo Basket</h3>
-      <p>Mix and match swai, shrimp, and calamari for the ultimate seafood experience.</p>
-    </div>
-    <div class="menu-item">
-      <h3>Tuesday — Jerk Chicken Alfredo</h3>
-      <p>Caribbean jerk chicken served over creamy alfredo pasta.</p>
-    </div>
-    <div class="menu-item">
-      <h3>Wednesday — 1/2 Rack Ribs & Fried Cabbage</h3>
-      <p>Juicy ribs paired with flavorful fried cabbage.</p>
-    </div>
-    <div class="menu-item">
-      <h3>Thursday — Smoked Pork Chop</h3>
-      <p>Thick cut pork chop smoked to perfection, served with house sides.</p>
-    </div>
-    <div class="menu-item">
-      <h3>Friday & Saturday — Beef Dino Rib</h3>
-      <p>Massive smoked beef rib with bold BBQ flavors.</p>
+      <img src="images/bahama_bowl.jpg" alt="Bahama Bowl">
+      <div class="menu-item-content">
+        <h3>Bahama Bowl</h3>
+        <p>Red beans and rice base with fried cabbage, pickled red onions, and smoky ranch on top. Add meat as desired.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -259,9 +259,6 @@ footer {
 <footer>
   &copy; 2026 Sokah Caribbean BBQ — Crafted with passion in Ambridge, PA
 </footer>
-
-</body>
-</html>
 
 </body>
 </html>
