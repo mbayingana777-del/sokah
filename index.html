@@ -6,12 +6,12 @@
 <title>Sokah Caribbean BBQ</title>
 
 <style>
-/* ---------- GLOBAL ---------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   background: #000;
@@ -41,7 +41,7 @@ body {
   align-items: center;
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.8));
+  background: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.85));
 }
 .hero-overlay h1 {
   font-size: 3rem;
@@ -67,34 +67,44 @@ body {
   background: #111;
   padding: 6rem 2rem;
 }
+
 .menu h2 {
   text-align: center;
   font-size: 2.8rem;
   margin-bottom: 4rem;
 }
+
 .menu-section {
   max-width: 1200px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 4.5rem;
 }
+
 .menu-section h3 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid #333;
-  padding-bottom: .5rem;
+  padding-bottom: .6rem;
 }
+
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.8rem;
 }
+
 .menu-item {
   background: #1c1c1c;
-  padding: 1.5rem;
-  border-radius: 14px;
+  padding: 1.6rem;
+  border-radius: 16px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.menu-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.4);
 }
 .menu-item h4 {
   font-size: 1.1rem;
-  margin-bottom: .4rem;
+  margin-bottom: .5rem;
 }
 .menu-item p {
   font-size: .95rem;
@@ -135,6 +145,7 @@ footer {
 }
 </style>
 </head>
+
 <body>
 
 <!-- HERO -->
@@ -144,8 +155,8 @@ footer {
 
   <div class="hero-overlay">
     <h1>Caribbean Smoke. Legendary Flavor.</h1>
-    <p>Smoked to perfection and infused with bold Caribbean soul — trusted by the community and featured locally.</p>
-    <a href="#menu">View Menu</a>
+    <p>Smoked to perfection and infused with bold Caribbean soul.</p>
+    <a href="#menu">View Full Menu</a>
   </div>
 </section>
 
@@ -153,43 +164,33 @@ footer {
 <section id="menu" class="menu">
   <h2>Our Menu</h2>
 
-  <!-- SMALL TINGS -->
   <div class="menu-section">
     <h3>Small Tings</h3>
     <div class="menu-grid">
-      <div class="menu-item">
-        <h4>Hushpippies — $8</h4>
-        <p>Fried shrimp tossed in habanero mango sauce, served with smoky ranch.</p>
-      </div>
-      <div class="menu-item">
-        <h4>Whole Smoked Wings — $10 / $18</h4>
-        <p>3 or 8 wings tossed in jerk BBQ, dry jerk, habanero mango, Bahamian gold, or Mo Fire.</p>
-      </div>
+      <div class="menu-item"><h4>Hushpippies — $8</h4><p>Fried shrimp, habanero mango sauce, smoky ranch.</p></div>
+      <div class="menu-item"><h4>Whole Smoked Wings — $10 / $18</h4><p>Jerk BBQ, dry jerk, habanero mango, Bahamian gold, Mo Fire.</p></div>
     </div>
   </div>
 
-  <!-- HANDHELDS -->
   <div class="menu-section">
     <h3>Handhelds</h3>
     <div class="menu-grid">
       <div class="menu-item"><h4>Brisket Cheesesteak</h4><p>Chopped brisket, peppers, onions, 5-cheese blend.</p></div>
-      <div class="menu-item"><h4>Pork Sandwich</h4><p>Pulled pork, coleslaw, Bahamian Gold BBQ on potato roll.</p></div>
-      <div class="menu-item"><h4>Smoked Quesadilla</h4><p>Peppers, onions, melted cheese in a pressed tortilla.</p></div>
-      <div class="menu-item"><h4>Jerk Chicken Hoagie</h4><p>Jerk chicken, aged cheddar, mango salsa, jerk BBQ.</p></div>
-      <div class="menu-item"><h4>All American Burger</h4><p>Two brisket patties, Sokah sauce, American cheese.</p></div>
+      <div class="menu-item"><h4>Pork Sandwich</h4><p>Pulled pork, coleslaw, Bahamian Gold BBQ.</p></div>
+      <div class="menu-item"><h4>Smoked Quesadilla</h4><p>Cheese, peppers, onions, pressed tortilla.</p></div>
+      <div class="menu-item"><h4>Jerk Chicken Hoagie</h4><p>Aged cheddar, mango salsa, jerk BBQ.</p></div>
+      <div class="menu-item"><h4>All American Burger</h4><p>Two brisket patties, Sokah sauce.</p></div>
     </div>
   </div>
 
-  <!-- BBQ BOWLS -->
   <div class="menu-section">
     <h3>BBQ Bowls</h3>
     <div class="menu-grid">
       <div class="menu-item"><h4>Soul Bowl</h4><p>Mac & cheese, collards, jerk BBQ, cornbread.</p></div>
-      <div class="menu-item"><h4>Bahama Bowl</h4><p>Red beans & rice, fried cabbage, pickled onions, smoky ranch.</p></div>
+      <div class="menu-item"><h4>Bahama Bowl</h4><p>Red beans & rice, fried cabbage, smoky ranch.</p></div>
     </div>
   </div>
 
-  <!-- SEAFOOD -->
   <div class="menu-section">
     <h3>Seafood Baskets</h3>
     <div class="menu-grid">
@@ -200,7 +201,6 @@ footer {
     </div>
   </div>
 
-  <!-- DINNERS -->
   <div class="menu-section">
     <h3>Dinners</h3>
     <div class="menu-grid">
@@ -212,10 +212,9 @@ footer {
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
-  <h2>Order the Flavor Everyone Talks About</h2>
-  <p>Island soul. Pit-master craft. Real food made with pride.</p>
+  <h2>Ready to Order?</h2>
+  <p>Real smoke. Real flavor. Real Caribbean BBQ.</p>
   <a href="#">Order Now</a>
 </section>
 
@@ -225,4 +224,3 @@ footer {
 
 </body>
 </html>
-
