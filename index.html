@@ -6,7 +6,7 @@
 <title>Sokah Caribbean BBQ</title>
 
 <style>
-/* ---------- RESET ---------- */
+/* ---------- GLOBAL ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -16,127 +16,140 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   background: #000;
   color: #fff;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* ---------- HERO ---------- */
 .hero {
   position: relative;
-  height: 100vh;
   width: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 .hero iframe {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 0;
 }
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,.35), #000 85%);
-  z-index: 1;
-}
-.hero-content {
+.hero-overlay {
   position: relative;
-  z-index: 2;
-  height: 100%;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem;
-  transition: opacity .6s ease, transform .6s ease;
+  padding: 0 2rem;
+  height: 100%;
 }
-.hero h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+.hero-overlay h1 {
+  font-size: 3rem;
   letter-spacing: 2px;
   margin-bottom: 1rem;
 }
-.hero p {
-  max-width: 520px;
-  opacity: .9;
+.hero-overlay p {
   font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+.hero-overlay a {
+  background: #fff;
+  color: #000;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 40px;
+  transition: background 0.3s;
+}
+.hero-overlay a:hover {
+  background: #ddd;
 }
 
-/* ---------- MENU GRID ---------- */
-.menu-grid {
-  background: #000;
-  padding: 6rem 2rem 4rem;
+/* ---------- INTERACTIVE MENU ---------- */
+.menu {
+  background: #111;
+  padding: 5rem 2rem;
 }
-.menu-grid h2 {
+.menu h2 {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
-.menu-grid p {
-  text-align: center;
-  opacity: .85;
-  margin-bottom: 4rem;
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
 }
-
-.grid {
-  max-width: 1300px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-}
-
-.card {
-  background: #111;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,.6);
-}
-
-.card-img {
-  height: 200px;
+.menu-tabs .tab-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 25px;
   background: #333;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
 }
-.card-content {
-  padding: 1.5rem;
+.menu-tabs .tab-btn.active {
+  background: #fff;
+  color: #000;
 }
-.card-content h3 {
-  margin-bottom: .5rem;
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
 }
-.card-content span {
-  font-size: .95rem;
-  opacity: .85;
+.menu-item {
+  background: #222;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+}
+.menu-item h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+.menu-item p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.5;
 }
 
 /* ---------- CTA ---------- */
 .cta {
+  min-height: 70vh;
   background: linear-gradient(135deg, #7a0c0c, #000);
-  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  padding: 3rem 2rem;
 }
 .cta h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 .cta p {
-  opacity: .9;
+  max-width: 500px;
   margin-bottom: 2rem;
+  opacity: 0.9;
 }
 .cta a {
-  display: inline-block;
   background: #fff;
   color: #000;
-  padding: 1rem 3rem;
-  border-radius: 40px;
-  font-weight: bold;
+  padding: 1rem 2.5rem;
   text-decoration: none;
-  transition: background .3s ease;
+  font-weight: bold;
+  border-radius: 40px;
+  transition: background 0.3s;
 }
 .cta a:hover {
   background: #ddd;
@@ -144,108 +157,204 @@ body {
 
 /* ---------- FOOTER ---------- */
 footer {
-  background: #111;
   text-align: center;
   padding: 2rem;
-  font-size: .9rem;
-  opacity: .7;
+  background: #111;
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
 </style>
 </head>
-
 <body>
 
-<!-- HERO -->
+<!-- HERO VIDEO -->
 <section class="hero">
   <iframe
-    src="https://www.youtube.com/embed/fFi_uzU1_pY?autoplay=1&mute=1&controls=0&loop=1&playlist=fFi_uzU1_pY"
+    src="https://www.youtube.com/embed/fFi_uzU1_pY?autoplay=1&mute=1&start=166&end=189&controls=0&loop=1&playlist=fFi_uzU1_pY&modestbranding=1&rel=0"
+    frameborder="0"
     allow="autoplay; fullscreen"
-    frameborder="0">
-  </iframe>
+    allowfullscreen
+  ></iframe>
 
-  <div class="hero-content" id="heroContent">
-    <h1>Caribbean Smoke. Legendary BBQ.</h1>
-    <p>Smoked low and slow. Caribbean flavor done right. Loved by Ambridge.</p>
+  <div class="hero-overlay">
+    <h1>Caribbean Smoke. Legendary Brisket.</h1>
+    <p>Smoked to perfection and layered with the bold, vibrant flavors of the Caribbean.</p>
+    <a href="#interactive-menu">Taste the Caribbean</a>
   </div>
 </section>
 
-<!-- MENU GRID -->
-<section class="menu-grid">
-  <h2>Customer Favorites</h2>
-  <p>The plates people come back for.</p>
+<!-- INTERACTIVE MENU -->
+<section id="interactive-menu" class="menu">
+  <h2>Our Menu</h2>
 
-  <div class="grid">
-    <div class="card">
-      <div class="card-img"></div>
-      <div class="card-content">
-        <h3>Smoked Brisket</h3>
-        <span>Deep smoke, tender pull, bold island finish.</span>
-      </div>
+  <div class="menu-tabs">
+    <button class="tab-btn active" data-category="small">Small Tings</button>
+    <button class="tab-btn" data-category="handhelds">Handhelds</button>
+    <button class="tab-btn" data-category="bbqbowls">BBQ Bowls</button>
+    <button class="tab-btn" data-category="seafood">Seafood Baskets</button>
+    <button class="tab-btn" data-category="signatures">Sokah Signatures</button>
+    <button class="tab-btn" data-category="sunday">Sunday</button>
+    <button class="tab-btn" data-category="deli">Deli</button>
+    <button class="tab-btn" data-category="dinners">Dinners</button>
+    <button class="tab-btn" data-category="specials">Specials</button>
+  </div>
+
+  <div class="menu-items">
+    <!-- Small Tings -->
+    <div class="menu-item" data-category="small">
+      <h3>Hushpippies — $8</h3>
+      <p>Fried shrimp tossed in a habanero mango sauce and served with smoky ranch.</p>
+    </div>
+    <div class="menu-item" data-category="small">
+      <h3>Whole Smoked Wings — $10 / $18</h3>
+      <p>3 each or 8 each tossed in your choice of jerk BBQ, dry jerk, habanero mango, Bahamian gold, or Mo Fire sauce.</p>
     </div>
 
-    <div class="card">
-      <div class="card-img"></div>
-      <div class="card-content">
-        <h3>Whole Smoked Wings</h3>
-        <span>Crispy skin, juicy bite, signature sauces.</span>
-      </div>
+    <!-- Handhelds -->
+    <div class="menu-item" data-category="handhelds" style="display:none;">
+      <h3>Brisket Cheesesteak</h3>
+      <p>Chopped brisket, sautéed peppers and onions, 5 cheese blend.</p>
+    </div>
+    <div class="menu-item" data-category="handhelds" style="display:none;">
+      <h3>Pork Sandwich</h3>
+      <p>Pulled pork, coleslaw, Bahamian Gold BBQ sauce, on a potato roll bun.</p>
+    </div>
+    <div class="menu-item" data-category="handhelds" style="display:none;">
+      <h3>Smoked Quesadilla</h3>
+      <p>Peppers and onions smothered in cheese in a pressed tortilla.</p>
+    </div>
+    <div class="menu-item" data-category="handhelds" style="display:none;">
+      <h3>Jerk Chicken Hoagie</h3>
+      <p>Jerk chicken, aged cheddar, lettuce, mango salsa, with jerk BBQ sauce on a hoagie bun.</p>
+    </div>
+    <div class="menu-item" data-category="handhelds" style="display:none;">
+      <h3>All American Burger</h3>
+      <p>2 ground brisket patties, Sokah smashed sauce, American cheese, onion, pickles.</p>
     </div>
 
-    <div class="card">
-      <div class="card-img"></div>
-      <div class="card-content">
-        <h3>Soul Bowl</h3>
-        <span>Comfort food layered with Caribbean soul.</span>
-      </div>
+    <!-- BBQ Bowls -->
+    <div class="menu-item" data-category="bbqbowls" style="display:none;">
+      <h3>Soul Bowl</h3>
+      <p>Mac and cheese base with collard greens, jerk BBQ sauce, and a piece of cornbread. Add meat: jerk chicken, pulled pork, turkey, brisket, or oxtail.</p>
+    </div>
+    <div class="menu-item" data-category="bbqbowls" style="display:none;">
+      <h3>Bahama Bowl</h3>
+      <p>Red beans and rice base with fried cabbage, pickled red onions, and smoky ranch on top. Add meat as desired.</p>
     </div>
 
-    <div class="card">
-      <div class="card-img"></div>
-      <div class="card-content">
-        <h3>Jerk Chicken Hoagie</h3>
-        <span>Heat, smoke, crunch, balance.</span>
-      </div>
+    <!-- Seafood Baskets -->
+    <div class="menu-item" data-category="seafood" style="display:none;">
+      <h3>Swai Catfish</h3>
+      <p>Crispy fried swai catfish served with your choice of sides.</p>
+    </div>
+    <div class="menu-item" data-category="seafood" style="display:none;">
+      <h3>Rock Shrimp</h3>
+      <p>Lightly fried rock shrimp, perfect with smoky ranch dipping sauce.</p>
+    </div>
+    <div class="menu-item" data-category="seafood" style="display:none;">
+      <h3>Calamari</h3>
+      <p>Crispy calamari with a touch of island spice.</p>
+    </div>
+    <div class="menu-item" data-category="seafood" style="display:none;">
+      <h3>Combo Basket</h3>
+      <p>Mix and match swai, shrimp, and calamari for the ultimate seafood experience.</p>
     </div>
 
-    <div class="card">
-      <div class="card-img"></div>
-      <div class="card-content">
-        <h3>Beef Dino Rib</h3>
-        <span>Big cut. Serious smoke. Limited runs.</span>
-      </div>
+    <!-- Sokah Signatures -->
+    <div class="menu-item" data-category="signatures" style="display:none;">
+      <h3>Tuesday — Jerk Chicken Alfredo</h3>
+      <p>Caribbean jerk chicken served over creamy alfredo pasta.</p>
+    </div>
+    <div class="menu-item" data-category="signatures" style="display:none;">
+      <h3>Wednesday — 1/2 Rack Ribs & Fried Cabbage</h3>
+      <p>Juicy ribs paired with flavorful fried cabbage.</p>
+    </div>
+    <div class="menu-item" data-category="signatures" style="display:none;">
+      <h3>Thursday — Smoked Pork Chop</h3>
+      <p>Thick cut pork chop smoked to perfection, served with house sides.</p>
+    </div>
+    <div class="menu-item" data-category="signatures" style="display:none;">
+      <h3>Friday & Saturday — Beef Dino Rib</h3>
+      <p>Massive smoked beef rib with bold BBQ flavors.</p>
     </div>
 
-    <div class="card">
-      <div class="card-img"></div>
-      <div class="card-content">
-        <h3>Seafood Basket</h3>
-        <span>Golden fry with island-seasoned crunch.</span>
-      </div>
+    <!-- Sunday -->
+    <div class="menu-item" data-category="sunday" style="display:none;">
+      <h3>Sunday — Wing Special</h3>
+      <p>Special wings available every Sunday. Ask about the flavors!</p>
+    </div>
+
+    <!-- Deli -->
+    <div class="menu-item" data-category="deli" style="display:none;">
+      <h3>Meats</h3>
+      <p>Jerk Chicken, Pulled Pork, Pork Spare Ribs, Brisket</p>
+    </div>
+    <div class="menu-item" data-category="deli" style="display:none;">
+      <h3>Sides</h3>
+      <p>Fried Cabbage, Red Beans and Rice, Cornbread, Fries, 5 Cheese Mac, Brisket Baked Beans, Collard Greens with Smoked Chicken</p>
+    </div>
+
+    <!-- Dinners -->
+    <div class="menu-item" data-category="dinners" style="display:none;">
+      <h3>Small Platter</h3>
+      <p>1 meat, 1 small side</p>
+    </div>
+    <div class="menu-item" data-category="dinners" style="display:none;">
+      <h3>Large Platter</h3>
+      <p>2 meats, 2 small sides</p>
+    </div>
+    <div class="menu-item" data-category="dinners" style="display:none;">
+      <h3>Big Boy Platter</h3>
+      <p>3 meats, 3 small sides</p>
+    </div>
+    <div class="menu-item" data-category="dinners" style="display:none;">
+      <h3>Platter for 2</h3>
+      <p>4 meats, 4 small sides</p>
+    </div>
+
+    <!-- Specials -->
+    <div class="menu-item" data-category="specials" style="display:none;">
+      <h3>Bowl</h3>
+      <p>$8 each</p>
+    </div>
+    <div class="menu-item" data-category="specials" style="display:none;">
+      <h3>Quart</h3>
+      <p>$16 each</p>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- CALL TO ACTION -->
 <section class="cta">
-  <h2>Ready to Eat?</h2>
-  <p>Order now and taste why Sokah is different.</p>
-  <a href="#">Order Online</a>
+  <h2>Bring the Island Smoke Home</h2>
+  <p>Order today and experience the craft, flavor, and soul of Sokah Caribbean BBQ — as seen on local news!</p>
+  <a href="https://example.com" target="_blank">Order Now</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  &copy; 2026 Sokah Caribbean BBQ — Ambridge, PA
+  &copy; 2026 Sokah Caribbean BBQ — Crafted with passion in Ambridge, PA
 </footer>
 
 <script>
-const hero = document.getElementById("heroContent");
+  const tabs = document.querySelectorAll('.tab-btn');
+  const items = document.querySelectorAll('.menu-item');
 
-window.addEventListener("scroll", () => {
-  const scroll = window.scrollY;
-  hero.style.opacity = Math.max(1 - scroll / 300, 0);
-  hero.style.transform = `translateY(${scroll * 0.3}px)`;
-});
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const category = tab.dataset.category;
+      items.forEach(item => {
+        if(item.dataset.category === category){
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
 </script>
 
 </body>
 </html>
-
