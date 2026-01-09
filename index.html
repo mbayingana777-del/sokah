@@ -1,225 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sokah Caribbean BBQ</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sokah Caribbean BBQ Menu</title>
+  <style>
+    /* ===== BODY ===== */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #111;
+      color: #fff;
+    }
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    /* ===== MENU SECTION ===== */
+    .menu {
+      padding: 6rem 2rem;
+    }
 
-body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background: #000;
-  color: #fff;
-  scroll-behavior: smooth;
-}
+    .menu h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 4rem;
+    }
 
-/* ---------- HERO ---------- */
-.hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-.hero iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-.hero-overlay {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-  background: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.85));
-}
-.hero-overlay h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.hero-overlay p {
-  max-width: 600px;
-  font-size: 1.2rem;
-  opacity: 0.9;
-  margin-bottom: 2rem;
-}
-.hero-overlay a {
-  background: #fff;
-  color: #000;
-  padding: 1rem 2.5rem;
-  border-radius: 40px;
-  font-weight: bold;
-  text-decoration: none;
-}
+    .menu-section {
+      max-width: 1200px;
+      margin: 0 auto 6rem;
+    }
 
-/* ---------- MENU ---------- */
-.menu {
-  background: #111;
-  padding: 6rem 2rem;
-}
+    .menu-section h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: .8rem;
+    }
 
-.menu h2 {
-  text-align: center;
-  font-size: 2.8rem;
-  margin-bottom: 4rem;
-}
+    /* ===== MENU GRID ===== */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
 
-.menu-section {
-  max-width: 1200px;
-  margin: 0 auto 4.5rem;
-}
+    /* ===== MENU ITEM ===== */
+    .menu-item {
+      background: #1c1c1c;
+      border-radius: 16px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform .2s ease, box-shadow .2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 80px; /* space for image to pop out */
+      position: relative;
+    }
 
-.menu-section h3 {
-  font-size: 1.9rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid #333;
-  padding-bottom: .6rem;
-}
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.4);
+    }
 
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.8rem;
-}
+    /* ===== IMAGE CIRCLE ===== */
+    .menu-item-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background-color: #333;
+      background-size: cover;
+      background-position: center;
+      border: 4px solid #222;
+      margin-top: -80px; /* pop out effect */
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-.menu-item {
-  background: #1c1c1c;
-  padding: 1.6rem;
-  border-radius: 16px;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.menu-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,.4);
-}
-.menu-item h4 {
-  font-size: 1.1rem;
-  margin-bottom: .5rem;
-}
-.menu-item p {
-  font-size: .95rem;
-  opacity: .85;
-  line-height: 1.5;
-}
+    /* ===== TEXT ===== */
+    .menu-item h4 {
+      font-size: 1.3rem;
+      margin: 1rem 0 .5rem;
+    }
 
-/* ---------- CTA ---------- */
-.cta {
-  background: linear-gradient(135deg, #7a0c0c, #000);
-  padding: 5rem 2rem;
-  text-align: center;
-}
-.cta h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-.cta p {
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  opacity: .9;
-}
-.cta a {
-  background: #fff;
-  color: #000;
-  padding: 1rem 2.5rem;
-  border-radius: 40px;
-  font-weight: bold;
-  text-decoration: none;
-}
+    .menu-item p {
+      font-size: 1rem;
+      opacity: .85;
+      line-height: 1.6;
+      padding: 0 1rem 1.5rem;
+    }
 
-/* ---------- FOOTER ---------- */
-footer {
-  padding: 2rem;
-  text-align: center;
-  background: #0d0d0d;
-  opacity: .7;
-}
-</style>
+    /* ===== RESPONSIVE TOUCH ===== */
+    @media (max-width: 600px) {
+      .menu h2 {
+        font-size: 2rem;
+      }
+      .menu-section h3 {
+        font-size: 1.5rem;
+      }
+      .menu-item-img {
+        width: 120px;
+        height: 120px;
+        margin-top: -60px;
+      }
+      .menu-item {
+        padding-top: 60px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <iframe src="https://www.youtube.com/embed/fFi_uzU1_pY?autoplay=1&mute=1&start=166&end=189&controls=0&loop=1&playlist=fFi_uzU1_pY&modestbranding=1&rel=0"
-    frameborder="0" allow="autoplay; fullscreen"></iframe>
+  <section class="menu">
+    <h2>Our Menu</h2>
 
-  <div class="hero-overlay">
-    <h1>Caribbean Smoke. Legendary Flavor.</h1>
-    <p>Smoked to perfection and infused with bold Caribbean soul.</p>
-    <a href="#menu">View Full Menu</a>
-  </div>
-</section>
-
-<!-- MENU -->
-<section id="menu" class="menu">
-  <h2>Our Menu</h2>
-
-  <div class="menu-section">
-    <h3>Small Tings</h3>
-    <div class="menu-grid">
-      <div class="menu-item"><h4>Hushpippies</h4><p>Fried shrimp, habanero mango sauce, smoky ranch.</p></div>
-      <div class="menu-item"><h4>Whole Smoked Wings</h4><p>Jerk BBQ, dry jerk, habanero mango, Bahamian gold, Mo Fire.</p></div>
+    <div class="menu-section">
+      <h3>Burgers</h3>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-img" style="background-image: url('burger.jpg');"></div>
+          <h4>Classic Burger</h4>
+          <p>Juicy beef patty with lettuce, tomato, and our secret sauce.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-img" style="background-image: url('cheeseburger.jpg');"></div>
+          <h4>Cheeseburger Deluxe</h4>
+          <p>Melted cheddar, crisp onions, pickles, and special sauce.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-img" style="background-image: url('veggie-burger.jpg');"></div>
+          <h4>Veggie Burger</h4>
+          <p>Grilled veggie patty, fresh greens, and tangy vegan mayo.</p>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="menu-section">
-    <h3>Handhelds</h3>
-    <div class="menu-grid">
-      <div class="menu-item"><h4>Brisket Cheesesteak</h4><p>Chopped brisket, peppers, onions, 5-cheese blend.</p></div>
-      <div class="menu-item"><h4>Pork Sandwich</h4><p>Pulled pork, coleslaw, Bahamian Gold BBQ.</p></div>
-      <div class="menu-item"><h4>Smoked Quesadilla</h4><p>Cheese, peppers, onions, pressed tortilla.</p></div>
-      <div class="menu-item"><h4>Jerk Chicken Hoagie</h4><p>Aged cheddar, mango salsa, jerk BBQ.</p>
+    <div class="menu-section">
+      <h3>BBQ Plates</h3>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-img" style="background-image: url('ribs.jpg');"></div>
+          <h4>Smoked Ribs</h4>
+          <p>Slow-smoked pork ribs glazed with Caribbean BBQ sauce.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-img" style="background-image: url('chicken.jpg');"></div>
+          <h4>Jerk Chicken</h4>
+          <p>Spicy, juicy jerk chicken with a side of grilled veggies.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-img" style="background-image: url('brisket.jpg');"></div>
+          <h4>Smoked Brisket</h4>
+          <p>Tender brisket, smoked low and slow, served with sauce.</p>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="menu-section">
-    <h3>BBQ Bowls</h3>
-    <div class="menu-grid">
-      <div class="menu-item"><h4>Soul Bowl</h4><p>Mac & cheese, collards, jerk BBQ, cornbread.</p></div>
-      <div class="menu-item"><h4>Bahama Bowl</h4><p>Red beans & rice, fried cabbage, smoky ranch.</p></div>
-    </div>
-  </div>
-
-  <div class="menu-section">
-    <h3>Seafood Baskets</h3>
-    <div class="menu-grid">
-      <div class="menu-item"><h4>Swai Catfish</h4></div>
-      <div class="menu-item"><h4>Rock Shrimp</h4></div>
-      <div class="menu-item"><h4>Calamari</h4></div>
-      <div class="menu-item"><h4>Combo Basket</h4></div>
-    </div>
-  </div>
-
-  <div class="menu-section">
-    <h3>Dinners</h3>
-    <div class="menu-grid">
-      <div class="menu-item"><h4>Small Platter</h4><p>1 meat, 1 side</p></div>
-      <div class="menu-item"><h4>Large Platter</h4><p>2 meats, 2 sides</p></div>
-      <div class="menu-item"><h4>Big Boy Platter</h4><p>3 meats, 3 sides</p></div>
-      <div class="menu-item"><h4>Platter for Two</h4><p>4 meats, 4 sides</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <h2>Ready to Order?</h2>
-  <p>Real smoke. Real flavor. Real Caribbean BBQ.</p>
-  <a href="#">Order Now</a>
-</section>
-
-<footer>
-  © 2026 Sokah Caribbean BBQ — Ambridge, PA
-</footer>
+  </section>
 
 </body>
 </html>
