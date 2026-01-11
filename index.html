@@ -11,7 +11,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; background:#000; color:#
 /* ---------- HEADER ---------- */
 header {
   background:#111;
-  padding:0.5rem 2rem; /* smaller padding for compact header */
+  padding:1rem 2rem;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -20,24 +20,11 @@ header {
   z-index:100;
   border-bottom:2px solid #222;
 }
-header h1 img { height:40px; } /* smaller logo */
-.contact-info-flex {
-  display: flex; /* side by side */
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-}
-.contact-info-flex p { margin:0; font-size:0.95rem; display:flex; align-items:center; gap:0.3rem; }
+header h1 img { height:50px; }
+header .contact-info { text-align:right; }
+header .contact-info p { margin:0.2rem 0; font-size:0.95rem; display:flex; align-items:center; gap:0.5rem; }
 .status-dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
-.rating { font-weight:bold; margin-top:0; }
-
-@media (max-width: 800px) {
-  .contact-info-flex {
-    flex-direction: column; /* stack on small screens */
-    gap: 0.5rem;
-    text-align: right;
-  }
-}
+.rating { font-weight:bold; margin-top:0.5rem; }
 
 /* ---------- HERO ---------- */
 .hero { position:relative; height:90vh; overflow:hidden; }
@@ -50,7 +37,7 @@ header h1 img { height:40px; } /* smaller logo */
   background:linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.85));
 }
 .hero-overlay h1 { font-size:3rem; margin-bottom:1rem; }
-.hero-overlay p { max-width:600px; font-size:1.2rem; opacity:.9; margin-bottom:2rem; }
+.hero-overlay p { max-width:600px; font-size:1.2rem; opacity:0.9; margin-bottom:2rem; }
 .hero-overlay a {
   background:#f7c948; color:#000; padding:1rem 2.5rem; border-radius:40px;
   font-weight:bold; text-decoration:none;
@@ -112,11 +99,12 @@ footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
 <!-- HEADER -->
 <header>
   <h1><img src="1bdad2ca-6298-4cca-8b67-b5857a4e38af.png" alt="Sokah BBQ Logo"></h1>
-  <div class="contact-info contact-info-flex">
-    <p><span class="status-dot" style="background:green;"></span> (123) 456-7890</p>
-    <p>123 Main Street, Ambridge, PA</p>
-    <p class="rating">⭐ 4.9 / 5</p>
-  </div>
+<div class="contact-info contact-info-flex">
+  <p><span class="status-dot" style="background:green;"></span> (123) 456-7890</p>
+  <p>123 Main Street, Ambridge, PA</p>
+  <p class="rating">⭐ 4.9 / 5</p>
+</div>
+
 </header>
 
 <!-- HERO -->
@@ -176,12 +164,10 @@ footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
 
 <!-- OUR STORY -->
 <section class="story" id="story">
-  <h2>Our Story</h2>
-  <p>At Sokah Caribbean BBQ, we bring the bold, smoky flavors of Texas BBQ together with the vibrant, exotic spices of the Caribbean. Every dish is a journey — from the first bite to the last, your taste buds will travel from southern smokehouses to sun-soaked island kitchens.</p>
-  
-  <p>Executive Chef Justin Burrus and Pitmaster Cory Brennan pour passion, skill, and a touch of Caribbean magic into every cut of meat. Tender jerk chicken, juicy smoked brisket, and rich, savory oxtail are all slow-smoked to perfection, then layered with flavors that awaken your senses and leave you craving more.</p>
-  
-  <p>Every bite tells a story — of bold traditions, masterful technique, and the love of food that brings people together. From the first whiff of smoke to the last bite of tender, saucy perfection, Sokah BBQ isn’t just a meal — it’s an experience you’ll want to savor again and again.</p>
+  <h2>The Soul of the Caribbean, Smoked in Texas Style</h2>
+  <p>Sokah Caribbean BBQ blends the bold, smoky essence of Texas BBQ with vibrant Caribbean flavors. Each dish transports your taste buds where southern barbecue meets exotic island spices.</p>
+  <p>Executive Chef Justin Burrus and Pitmaster Cory Brennan expertly smoke meats to perfection, then infuse each dish with Caribbean flair. Every bite tells a story of culinary craftsmanship and passion.</p>
+  <p>Whether it’s succulent jerk chicken, tender smoked brisket, or savory Oxtail, each meal celebrates flavor, tradition, and innovation.</p>
 </section>
 
 <!-- EMAIL SIGNUP -->
@@ -200,6 +186,3 @@ footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
 </footer>
 
 </body>
-</html>
-
-</html>
