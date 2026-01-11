@@ -5,326 +5,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sokah Caribbean BBQ</title>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background: #000;
-  color: #fff;
-  scroll-behavior: smooth;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Helvetica Neue", Arial, sans-serif; background:#000; color:#fff; scroll-behavior:smooth; }
 
 /* ---------- HEADER ---------- */
 header {
-  background: #1c1c1c;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 2px solid #222;
+  background:#111;
+  padding:1rem 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+  border-bottom:2px solid #222;
 }
-header h1 {
-  font-size: 1.8rem;
-  color: #f7c948;
-}
-nav a {
-  margin-left: 2rem;
-  font-size: 1rem;
-  transition: color .2s ease;
-}
-nav a:hover {
-  color: #f7c948;
-}
+header h1 img { height:50px; }
+header .contact-info { text-align:right; }
+header .contact-info p { margin:0.2rem 0; font-size:0.95rem; display:flex; align-items:center; gap:0.5rem; }
+.status-dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+.rating { font-weight:bold; margin-top:0.5rem; }
 
 /* ---------- HERO ---------- */
-.hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-.hero iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
+.hero { position:relative; height:90vh; overflow:hidden; }
+.hero iframe { position:absolute; inset:0; width:100%; height:100%; }
 .hero-overlay {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-  background: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.85));
+  position:relative; z-index:2; height:100%;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  text-align:center; padding:2rem;
+  background:linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.85));
 }
-.hero-overlay h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.hero-overlay p {
-  max-width: 600px;
-  font-size: 1.2rem;
-  opacity: 0.9;
-  margin-bottom: 2rem;
-}
+.hero-overlay h1 { font-size:3rem; margin-bottom:1rem; }
+.hero-overlay p { max-width:600px; font-size:1.2rem; opacity:0.9; margin-bottom:2rem; }
 .hero-overlay a {
-  background: #f7c948;
-  color: #000;
-  padding: 1rem 2.5rem;
-  border-radius: 40px;
-  font-weight: bold;
-  text-decoration: none;
+  background:#f7c948; color:#000; padding:1rem 2.5rem; border-radius:40px;
+  font-weight:bold; text-decoration:none;
 }
 
-/* ---------- FEATURED ITEMS ---------- */
-.featured {
-  padding: 6rem 2rem;
-  text-align: center;
-}
-.featured h2 {
-  font-size: 2.8rem;
-  margin-bottom: 4rem;
-}
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-}
+/* ---------- FEATURED ---------- */
+.featured { padding:6rem 2rem; text-align:center; }
+.featured h2 { font-size:2.8rem; margin-bottom:2.5rem; }
+.featured-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; }
 .featured-item {
-  background: #1c1c1c;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform .2s ease, box-shadow .2s ease;
-  position: relative;
-  padding-top: 140px;
-  text-align: center;
+  background:#1c1c1c; border-radius:16px; overflow:hidden;
+  transition:transform .2s ease, box-shadow .2s ease;
+  position:relative; padding-top:140px; text-align:center;
 }
-.featured-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0,0,0,.4);
-}
-.featured-item-img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  border: 4px solid #222;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.featured-item h4 {
-  margin: 1rem 0 .5rem;
-  font-size: 1.2rem;
-}
+.featured-item:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,.4); }
+.featured-item-img { width:140px; height:140px; border-radius:50%; background-size:cover; background-position:center; border:4px solid #222; position:absolute; top:0; left:50%; transform:translateX(-50%); }
+.featured-item h4 { margin:1rem 0 .5rem; font-size:1.2rem; }
 .featured-item a {
-  display: inline-block;
-  margin-bottom: 1.5rem;
-  padding: .5rem 1.2rem;
-  border-radius: 25px;
-  background: #f7c948;
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
+  display:inline-block; margin-bottom:1.5rem; padding:.5rem 1.2rem;
+  border-radius:25px; background:#f7c948; color:#000; font-weight:bold; text-decoration:none;
+}
+.featured-full-btn {
+  margin-top:2rem;
+  display:inline-block; padding:1rem 2.5rem;
+  border-radius:40px; background:#f7c948; color:#000; font-weight:bold; text-decoration:none;
 }
 
-/* ---------- FULL MENU ---------- */
-.menu {
-  background: #111;
-  padding: 6rem 2rem;
-}
-.menu h2 {
-  text-align: center;
-  font-size: 2.8rem;
-  margin-bottom: 4rem;
-}
-.menu-section {
-  max-width: 1200px;
-  margin: 0 auto 6rem;
-}
-.menu-section h3 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #333;
-  padding-bottom: .8rem;
-}
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-}
-.menu-item {
-  background: #1c1c1c;
-  border-radius: 16px;
-  overflow: hidden;
-  text-align: center;
-  transition: transform .2s ease, box-shadow .2s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 80px;
-  position: relative;
-}
-.menu-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0,0,0,.4);
-}
-.menu-item-img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background-color: #333;
-  background-size: cover;
-  background-position: center;
-  border: 4px solid #222;
-  margin-top: -70px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.menu-item h4 {
-  font-size: 1.2rem;
-  margin: 1rem 0 .5rem;
-}
-.menu-item p {
-  font-size: 1rem;
-  opacity: .85;
-  line-height: 1.5;
-  padding: 0 1rem 1.5rem;
-}
-.menu-item a {
-  display: inline-block;
-  margin-bottom: 1rem;
-  padding: .5rem 1.2rem;
-  border-radius: 25px;
-  background: #f7c948;
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-}
+/* ---------- OUR STORY ---------- */
+.story { padding:6rem 2rem; background:#111; max-width:1000px; margin:0 auto; text-align:center; }
+.story h2 { font-size:2.8rem; margin-bottom:2rem; }
+.story p { font-size:1.05rem; line-height:1.7; opacity:.9; margin-bottom:1.5rem; }
 
-/* ---------- CTA ---------- */
-.cta {
-  background: linear-gradient(135deg, #7a0c0c, #000);
-  padding: 5rem 2rem;
-  text-align: center;
-}
-.cta h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-.cta p {
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  opacity: .9;
-}
-.cta a {
-  background: #f7c948;
-  color: #000;
-  padding: 1rem 2.5rem;
-  border-radius: 40px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-/* ---------- LOCATIONS + SIGNUP ---------- */
-.locations {
-  padding: 6rem 2rem;
-  background: #111;
-  text-align: center;
-}
-.locations h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-.locations p {
-  margin-bottom: 1rem;
-}
-.locations input[type="email"] {
-  padding: 0.8rem 1rem;
-  border-radius: 25px;
-  border: none;
-  margin-right: .5rem;
-}
-.locations button {
-  padding: 0.8rem 1.5rem;
-  border-radius: 25px;
-  border: none;
-  background: #f7c948;
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-}
+/* ---------- EMAIL SIGNUP ---------- */
+.signup { padding:5rem 2rem; background:#1c1c1c; text-align:center; }
+.signup h2 { font-size:2.5rem; margin-bottom:1rem; }
+.signup p { max-width:600px; margin:0 auto 2rem; opacity:.9; }
+.signup input[type="email"] { padding:.8rem 1rem; border-radius:25px; border:none; margin-right:.5rem; }
+.signup button { padding:.8rem 1.5rem; border-radius:25px; border:none; background:#f7c948; color:#000; font-weight:bold; cursor:pointer; }
 
 /* ---------- FOOTER ---------- */
-footer {
-  padding: 2rem;
-  text-align: center;
-  background: #0d0d0d;
-  opacity: .9;
-}
+footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav a {
-    margin-left: 0;
-    margin-right: 1.5rem;
-  }
-  .hero-overlay h1 {
-    font-size: 2rem;
-  }
-  .featured-item-img,
-  .menu-item-img {
-    width: 120px;
-    height: 120px;
-    margin-top: -60px;
-  }
-  .featured-item, .menu-item {
-    padding-top: 60px;
-  }
+@media (max-width:600px){
+  .hero-overlay h1{ font-size:2rem; }
+  .featured-item-img{ width:120px; height:120px; margin-top:-60px; }
+  .featured-item{ padding-top:60px; }
 }
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
 <header>
-  <h1>Sokah BBQ</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#featured">Featured</a>
-    <a href="#menu">Menu</a>
-    <a href="#locations">Locations</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <h1><img src="1bdad2ca-6298-4cca-8b67-b5857a4e38af.png" alt="Sokah BBQ Logo"></h1>
+  <div class="contact-info">
+    <p><span class="status-dot" style="background:green;"></span> (123) 456-7890</p>
+    <p>123 Main Street, Ambridge, PA</p>
+    <p class="rating">⭐ 4.9 / 5</p>
+  </div>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="home">
   <iframe src="https://www.youtube.com/embed/fFi_uzU1_pY?autoplay=1&mute=1&start=166&end=189&controls=0&loop=1&playlist=fFi_uzU1_pY&modestbranding=1&rel=0"
     frameborder="0" allow="autoplay; fullscreen"></iframe>
-
   <div class="hero-overlay">
     <h1>Caribbean Smoke. Legendary Flavor.</h1>
     <p>As seen on [Guest Show Name]: Bold flavors, smoked to perfection.</p>
-    <a href="#menu">View Full Menu</a>
+    <a href="#featured">View Fan Favorites</a>
   </div>
 </section>
 
@@ -347,39 +130,37 @@ footer {
       <h4>Firecracker Shrimp</h4>
       <a href="#menu">Order Now</a>
     </div>
-  </div>
-</section>
-
-<!-- FULL MENU -->
-<section id="menu" class="menu">
-  <h2>Our Menu</h2>
-
-  <!-- Example Category -->
-  <div class="menu-section">
-    <h3>Small Tings</h3>
-    <div class="menu-grid">
-      <div class="menu-item"><div class="menu-item-img" style="background-image:url('hushpippies.jpg');"></div><h4>Hushpippies</h4><p>Fried shrimp, habanero mango sauce, smoky ranch.</p><a href="#">Order Now</a></div>
-      <div class="menu-item"><div class="menu-item-img" style="background-image:url('wings.jpg');"></div><h4>Whole Smoked Wings</h4><p>Jerk BBQ, dry jerk, habanero mango, Bahamian gold, Mo Fire.</p><a href="#">Order Now</a></div>
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('oxtail.jpg');"></div>
+      <h4>Oxtail Platter</h4>
+      <a href="#menu">Order Now</a>
+    </div>
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('smoked-brisket.jpg');"></div>
+      <h4>Smoked Brisket</h4>
+      <a href="#menu">Order Now</a>
+    </div>
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('beach-bum.jpg');"></div>
+      <h4>Beach Bum Platter</h4>
+      <a href="#menu">Order Now</a>
     </div>
   </div>
-
-  <!-- Add additional categories here following same pattern -->
-  <!-- Handhelds, BBQ Bowls, Seafood, Dinners -->
-
+  <a href="https://sokahbbq.com/menu" class="featured-full-btn">See Full Menu</a>
 </section>
 
-<!-- CTA -->
-<section class="cta">
-  <h2>Ready to Taste the Smoke?</h2>
-  <p>Real smoke. Real flavor. Real Caribbean BBQ.</p>
-  <a href="#">Order Now</a>
+<!-- OUR STORY -->
+<section class="story" id="story">
+  <h2>The Soul of the Caribbean, Smoked in Texas Style</h2>
+  <p>Sokah Caribbean BBQ blends the bold, smoky essence of Texas BBQ with vibrant Caribbean flavors. Each dish transports your taste buds where southern barbecue meets exotic island spices.</p>
+  <p>Executive Chef Justin Burrus and Pitmaster Cory Brennan expertly smoke meats to perfection, then infuse each dish with Caribbean flair. Every bite tells a story of culinary craftsmanship and passion.</p>
+  <p>Whether it’s succulent jerk chicken, tender smoked brisket, or savory Oxtail, each meal celebrates flavor, tradition, and innovation.</p>
 </section>
 
-<!-- LOCATIONS + SIGNUP -->
-<section class="locations" id="locations">
-  <h2>Find Us / Stay Updated</h2>
-  <p>123 Main Street, Your City</p>
-  <p>456 Second Street, Another City</p>
+<!-- EMAIL SIGNUP -->
+<section class="signup">
+  <h2>Join the Sokah Family</h2>
+  <p>Get exclusive deals, early access to events, and special menu updates delivered straight to your inbox.</p>
   <form>
     <input type="email" placeholder="Your Email">
     <button type="submit">Sign Up</button>
@@ -387,9 +168,10 @@ footer {
 </section>
 
 <!-- FOOTER -->
-<footer id="contact">
+<footer>
   © 2026 Sokah Caribbean BBQ — Ambridge, PA
 </footer>
 
 </body>
 </html>
+
