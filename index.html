@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sokah Caribbean BBQ</title>
-
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:"Helvetica Neue", Arial, sans-serif; background:#000; color:#fff; scroll-behavior:smooth; }
@@ -12,7 +11,7 @@ body { font-family:"Helvetica Neue", Arial, sans-serif; background:#000; color:#
 /* ---------- HEADER ---------- */
 header{
   background:#111;
-  padding:0.45rem 1.25rem;            /* smaller header */
+  padding:0.6rem 2rem;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -20,36 +19,18 @@ header{
   top:0;
   z-index:100;
   border-bottom:2px solid #222;
-  gap:1rem;
+  gap:1.5rem;
 }
+header h1{ display:flex; align-items:center; }
+header h1 img{ height:40px; }
 
-/* LEFT BRAND (logo + text) */
-.brand{
-  display:flex;
-  align-items:center;
-  gap:0.6rem;
-  min-width:0;
-}
-.brand img{
-  width:34px;                         /* small icon logo */
-  height:34px;
-  object-fit:contain;
-  display:block;
-}
-.brand span{
-  font-size:1.35rem;                  /* “Sokah BBQ” size */
-  font-weight:800;
-  letter-spacing:0.4px;
-  white-space:nowrap;
-}
-
-/* RIGHT CONTACT INFO (side-by-side) */
+/* contact info side-by-side */
 .contact-info-flex{
   display:flex;
   align-items:center;
-  gap:1.5rem;
   justify-content:flex-end;
-  white-space:nowrap;                 /* keeps each line from wrapping weirdly */
+  gap:2rem;
+  flex-wrap:wrap;
 }
 .contact-info-flex p{
   margin:0;
@@ -57,19 +38,10 @@ header{
   display:flex;
   align-items:center;
   gap:0.45rem;
+  white-space:nowrap;
 }
 .status-dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
 .rating { font-weight:bold; }
-
-/* Mobile: allow wrapping so it doesn't overflow */
-@media (max-width: 860px){
-  .contact-info-flex{
-    flex-wrap:wrap;
-    gap:0.75rem 1.25rem;
-    justify-content:flex-end;
-    white-space:normal;
-  }
-}
 
 /* ---------- HERO ---------- */
 .hero { position:relative; height:90vh; overflow:hidden; }
@@ -98,8 +70,15 @@ header{
   font-weight:bold;
   text-decoration:none;
 }
-.hero-actions .primary{ background:#f7c948; color:#000; }
-.hero-actions .secondary{ border:2px solid #f7c948; color:#f7c948; background:transparent; }
+.hero-actions .primary{
+  background:#f7c948;
+  color:#000;
+}
+.hero-actions .secondary{
+  border:2px solid #f7c948;
+  color:#f7c948;
+  background:transparent;
+}
 
 /* ---------- FEATURED ---------- */
 .featured { padding:6rem 2rem; text-align:center; }
@@ -113,7 +92,8 @@ header{
 .featured-item:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,.4); }
 .featured-item-img {
   width:140px; height:140px; border-radius:50%;
-  background-size:cover; background-position:center; background-repeat:no-repeat;
+  background-size:cover; background-position:center;
+  background-repeat:no-repeat;
   border:4px solid #222;
   position:absolute; top:0; left:50%;
   transform:translateX(-50%);
@@ -130,12 +110,12 @@ header{
 }
 
 /* ---------- OUR STORY ---------- */
-.story { 
-  padding:6rem 2rem; 
-  background:#111; 
-  max-width:1000px; 
+.story {
+  padding:6rem 2rem;
+  background:#111;
+  max-width:1000px;
   margin:0 auto 4rem;
-  text-align:center; 
+  text-align:center;
 }
 .story h2 { font-size:2.8rem; margin-bottom:2rem; }
 .story p { font-size:1.05rem; line-height:1.7; opacity:.9; margin-bottom:1.5rem; }
@@ -151,29 +131,25 @@ header{
 footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
 
 /* ---------- RESPONSIVE ---------- */
+@media (max-width:800px){
+  header{ padding:0.65rem 1rem; }
+  header h1 img{ height:36px; }
+  .contact-info-flex{ gap:1rem; }
+}
 @media (max-width:600px){
   .hero-overlay h1{ font-size:2rem; }
   .featured-item-img{ width:120px; height:120px; margin-top:-60px; }
   .featured-item{ padding-top:60px; }
-  .brand span{ font-size:1.2rem; }
-  .brand img{ width:30px; height:30px; }
 }
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
 <header>
-  <!-- LEFT: icon + text -->
-  <div class="brand">
-    <!-- Put your generated logo icon file here -->
-    <img src="sokah-logo-icon.png" alt="Sokah BBQ">
-    <span>Sokah BBQ</span>
-  </div>
+  <h1><img src="1bdad2ca-6298-4cca-8b67-b5857a4e38af.png" alt="Sokah BBQ Logo"></h1>
 
-  <!-- RIGHT: contact info side-by-side -->
-  <div class="contact-info-flex">
+  <div class="contact-info contact-info-flex">
     <p><span class="status-dot" style="background:green;"></span> (123) 456-7890</p>
     <p>123 Main Street, Ambridge, PA</p>
     <p class="rating">⭐ 4.9 / 5</p>
@@ -202,60 +178,70 @@ footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
   <h2>Fan Favorites</h2>
   <div class="featured-grid">
 
+    <!-- 1 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('pulled-pork.jpg');"></div>
       <h4>Smoked Pulled Pork</h4>
       <a href="https://sokahbbq.com/menu">Order Now</a>
     </div>
 
+    <!-- 2 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('jerk-chicken.jpg');"></div>
       <h4>Jerk Chicken</h4>
       <a href="https://sokahbbq.com/menu">Order Now</a>
     </div>
 
+    <!-- 3 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('firecracker-shrimp.jpg');"></div>
       <h4>Firecracker Shrimp</h4>
       <a href="https://sokahbbq.com/menu">Order Now</a>
     </div>
 
+    <!-- 4 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('oxtail.jpg');"></div>
       <h4>Oxtail Platter</h4>
       <a href="https://sokahbbq.com/menu">Order Now</a>
     </div>
 
+    <!-- 5 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('smoked-brisket.jpg');"></div>
       <h4>Smoked Brisket</h4>
       <a href="https://sokahbbq.com/menu">Order Now</a>
     </div>
 
+    <!-- 6 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('beach-bum.jpg');"></div>
       <h4>Beach Bum Platter</h4>
       <a href="https://sokahbbq.com/menu">Order Now</a>
     </div>
 
+    <!-- 7 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('rasta-ribs.jpg');"></div>
       <h4>Rasta Ribs</h4>
       <a href="https://sokahbbq.com/menu">Order Now</a>
     </div>
 
+    <!-- 8 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('caribbean-lobster.jpg');"></div>
       <h4>Caribbean Lobster</h4>
       <a href="https://sokahbbq.com/menu">Order Now</a>
     </div>
 
+    <!-- 9 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('jamaican-salad.jpg');"></div>
       <h4>Jamaican Salad</h4>
       <a href="https://sokahbbq.com/menu">Order Now</a>
     </div>
 
+    <!-- 10 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('spicy-wings.jpg');"></div>
       <h4>Spicy Wings</h4>
