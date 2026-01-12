@@ -145,4 +145,150 @@ header{
 .signup h2 { font-size:2.5rem; margin-bottom:1rem; }
 .signup p { max-width:600px; margin:0 auto 2rem; opacity:.9; }
 .signup input[type="email"] { padding:.8rem 1rem; border-radius:25px; border:none; margin-right:.5rem; }
-.signup button {
+.signup button { padding:.8rem 1.5rem; border-radius:25px; border:none; background:#f7c948; color:#000; font-weight:bold; cursor:pointer; }
+
+/* ---------- FOOTER ---------- */
+footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:600px){
+  .hero-overlay h1{ font-size:2rem; }
+  .featured-item-img{ width:120px; height:120px; margin-top:-60px; }
+  .featured-item{ padding-top:60px; }
+  .brand span{ font-size:1.2rem; }
+  .brand img{ width:30px; height:30px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <!-- LEFT: icon + text -->
+  <div class="brand">
+    <!-- Put your generated logo icon file here -->
+    <img src="sokah-logo-icon.png" alt="Sokah BBQ">
+    <span>Sokah BBQ</span>
+  </div>
+
+  <!-- RIGHT: contact info side-by-side -->
+  <div class="contact-info-flex">
+    <p><span class="status-dot" style="background:green;"></span> (123) 456-7890</p>
+    <p>123 Main Street, Ambridge, PA</p>
+    <p class="rating">⭐ 4.9 / 5</p>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <iframe
+    src="https://www.youtube.com/embed/fFi_uzU1_pY?autoplay=1&mute=1&start=166&end=189&controls=0&loop=1&playlist=fFi_uzU1_pY&modestbranding=1&rel=0"
+    frameborder="0" allow="autoplay; fullscreen"></iframe>
+
+  <div class="hero-overlay">
+    <h1>Caribbean Smoke. Legendary Flavor.</h1>
+    <p>As seen on [Guest Show Name]: Bold flavors, smoked to perfection.</p>
+
+    <div class="hero-actions">
+      <a class="primary" href="#featured">View Fan Favorites</a>
+      <a class="secondary" href="https://sokahbbq.com/menu">See Full Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED ITEMS -->
+<section class="featured" id="featured">
+  <h2>Fan Favorites</h2>
+  <div class="featured-grid">
+
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('pulled-pork.jpg');"></div>
+      <h4>Smoked Pulled Pork</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('jerk-chicken.jpg');"></div>
+      <h4>Jerk Chicken</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('firecracker-shrimp.jpg');"></div>
+      <h4>Firecracker Shrimp</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('oxtail.jpg');"></div>
+      <h4>Oxtail Platter</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('smoked-brisket.jpg');"></div>
+      <h4>Smoked Brisket</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('beach-bum.jpg');"></div>
+      <h4>Beach Bum Platter</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('rasta-ribs.jpg');"></div>
+      <h4>Rasta Ribs</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('caribbean-lobster.jpg');"></div>
+      <h4>Caribbean Lobster</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('jamaican-salad.jpg');"></div>
+      <h4>Jamaican Salad</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('spicy-wings.jpg');"></div>
+      <h4>Spicy Wings</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+  </div>
+
+  <a href="https://sokahbbq.com/menu" class="featured-full-btn">See Full Menu</a>
+</section>
+
+<!-- OUR STORY -->
+<section class="story" id="story">
+  <h2>The Soul of the Caribbean, Smoked in Texas Style</h2>
+  <p>Sokah Caribbean BBQ blends the bold, smoky essence of Texas BBQ with vibrant Caribbean flavors. Each dish transports your taste buds where southern barbecue meets exotic island spices.</p>
+  <p>Executive Chef Justin Burrus and Pitmaster Cory Brennan expertly smoke meats to perfection, then infuse each dish with Caribbean flair. Every bite tells a story of culinary craftsmanship and passion.</p>
+  <p>Whether it’s succulent jerk chicken, tender smoked brisket, or savory Oxtail, each meal celebrates flavor, tradition, and innovation.</p>
+</section>
+
+<!-- EMAIL SIGNUP -->
+<section class="signup">
+  <h2>Join the Sokah Family</h2>
+  <p>Get exclusive deals, early access to events, and special menu updates delivered straight to your inbox.</p>
+  <form>
+    <input type="email" placeholder="Your Email">
+    <button type="submit">Sign Up</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Sokah Caribbean BBQ — Ambridge, PA
+</footer>
+
+</body>
+</html>
