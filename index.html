@@ -9,9 +9,9 @@
 body { font-family:"Helvetica Neue", Arial, sans-serif; background:#000; color:#fff; scroll-behavior:smooth; }
 
 /* ---------- HEADER ---------- */
-header{
+header {
   background:#111;
-  padding:0.6rem 2rem;              /* smaller header */
+  padding:1rem 2rem;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -19,29 +19,12 @@ header{
   top:0;
   z-index:100;
   border-bottom:2px solid #222;
-  gap:1.5rem;
 }
-header h1{ display:flex; align-items:center; }
-header h1 img{ height:40px; }       /* smaller logo */
-
-/* contact info side-by-side */
-.contact-info-flex{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:2rem;
-  flex-wrap:wrap;                   /* if screen shrinks, it wraps cleanly */
-}
-.contact-info-flex p{
-  margin:0;
-  font-size:0.95rem;
-  display:flex;
-  align-items:center;
-  gap:0.45rem;
-  white-space:nowrap;
-}
+header h1 img { height:50px; }
+header .contact-info { text-align:right; }
+header .contact-info p { margin:0.2rem 0; font-size:0.95rem; display:flex; align-items:center; gap:0.5rem; }
 .status-dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
-.rating { font-weight:bold; }
+.rating { font-weight:bold; margin-top:0.5rem; }
 
 /* ---------- HERO ---------- */
 .hero { position:relative; height:90vh; overflow:hidden; }
@@ -51,33 +34,13 @@ header h1 img{ height:40px; }       /* smaller logo */
   display:flex; flex-direction:column;
   justify-content:center; align-items:center;
   text-align:center; padding:2rem;
-  background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.9));
+  background:linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.85));
 }
 .hero-overlay h1 { font-size:3rem; margin-bottom:1rem; }
-.hero-overlay p { max-width:650px; font-size:1.2rem; opacity:0.92; margin-bottom:2rem; }
-
-/* HERO BUTTONS */
-.hero-actions{
-  display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-.hero-actions a{
-  display:inline-block;
-  padding:1rem 2.2rem;
-  border-radius:40px;
-  font-weight:bold;
-  text-decoration:none;
-}
-.hero-actions .primary{
-  background:#f7c948;
-  color:#000;
-}
-.hero-actions .secondary{
-  border:2px solid #f7c948;
-  color:#f7c948;
-  background:transparent;
+.hero-overlay p { max-width:600px; font-size:1.2rem; opacity:0.9; margin-bottom:2rem; }
+.hero-overlay a {
+  background:#f7c948; color:#000; padding:1rem 2.5rem; border-radius:40px;
+  font-weight:bold; text-decoration:none;
 }
 
 /* ---------- FEATURED ---------- */
@@ -90,14 +53,7 @@ header h1 img{ height:40px; }       /* smaller logo */
   position:relative; padding-top:140px; text-align:center;
 }
 .featured-item:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,.4); }
-.featured-item-img {
-  width:140px; height:140px; border-radius:50%;
-  background-size:cover; background-position:center;
-  background-repeat:no-repeat;
-  border:4px solid #222;
-  position:absolute; top:0; left:50%;
-  transform:translateX(-50%);
-}
+.featured-item-img { width:140px; height:140px; border-radius:50%; background-size:cover; background-position:center; border:4px solid #222; position:absolute; top:0; left:50%; transform:translateX(-50%); }
 .featured-item h4 { margin:1rem 0 .5rem; font-size:1.2rem; }
 .featured-item a {
   display:inline-block; margin-bottom:1.5rem; padding:.5rem 1.2rem;
@@ -131,11 +87,6 @@ header h1 img{ height:40px; }       /* smaller logo */
 footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width:800px){
-  header{ padding:0.65rem 1rem; }
-  header h1 img{ height:36px; }
-  .contact-info-flex{ gap:1rem; }
-}
 @media (max-width:600px){
   .hero-overlay h1{ font-size:2rem; }
   .featured-item-img{ width:120px; height:120px; margin-top:-60px; }
@@ -148,29 +99,22 @@ footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
 <!-- HEADER -->
 <header>
   <h1><img src="1bdad2ca-6298-4cca-8b67-b5857a4e38af.png" alt="Sokah BBQ Logo"></h1>
+<div class="contact-info contact-info-flex">
+  <p><span class="status-dot" style="background:green;"></span> (123) 456-7890</p>
+  <p>123 Main Street, Ambridge, PA</p>
+  <p class="rating">⭐ 4.9 / 5</p>
+</div>
 
-  <!-- side-by-side contact info -->
-  <div class="contact-info contact-info-flex">
-    <p><span class="status-dot" style="background:green;"></span> (123) 456-7890</p>
-    <p>123 Main Street, Ambridge, PA</p>
-    <p class="rating">⭐ 4.9 / 5</p>
-  </div>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <iframe
-    src="https://www.youtube.com/embed/fFi_uzU1_pY?autoplay=1&mute=1&start=166&end=189&controls=0&loop=1&playlist=fFi_uzU1_pY&modestbranding=1&rel=0"
+  <iframe src="https://www.youtube.com/embed/fFi_uzU1_pY?autoplay=1&mute=1&start=166&end=189&controls=0&loop=1&playlist=fFi_uzU1_pY&modestbranding=1&rel=0"
     frameborder="0" allow="autoplay; fullscreen"></iframe>
-
   <div class="hero-overlay">
     <h1>Caribbean Smoke. Legendary Flavor.</h1>
     <p>As seen on [Guest Show Name]: Bold flavors, smoked to perfection.</p>
-
-    <div class="hero-actions">
-      <a class="primary" href="#featured">View Fan Favorites</a>
-      <a class="secondary" href="https://sokahbbq.com/menu">See Full Menu</a>
-    </div>
+    <a href="#featured">View Fan Favorites</a>
   </div>
 </section>
 
@@ -183,39 +127,38 @@ footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('pulled-pork.jpg');"></div>
       <h4>Smoked Pulled Pork</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a href="#menu">Order Now</a>
     </div>
 
     <!-- Jerk Chicken -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('jerk-chicken.jpg');"></div>
       <h4>Jerk Chicken</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a href="#menu">Order Now</a>
     </div>
 
     <!-- Firecracker Shrimp -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('firecracker-shrimp.jpg');"></div>
       <h4>Firecracker Shrimp</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a href="#menu">Order Now</a>
     </div>
 
     <!-- Oxtail Platter -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('oxtail.jpg');"></div>
       <h4>Oxtail Platter</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a href="#menu">Order Now</a>
     </div>
 
     <!-- Smoked Brisket -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('smoked-brisket.jpg');"></div>
       <h4>Smoked Brisket</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a href="#menu">Order Now</a>
     </div>
 
   </div>
-
   <a href="https://sokahbbq.com/menu" class="featured-full-btn">See Full Menu</a>
 </section>
 
@@ -243,4 +186,3 @@ footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
 </footer>
 
 </body>
-</html>
