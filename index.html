@@ -44,17 +44,54 @@ header h1 img{ height:40px; }
 .rating { font-weight:bold; }
 
 /* ---------- HERO ---------- */
-.hero { position:relative; height:90vh; overflow:hidden; }
-.hero iframe { position:absolute; inset:0; width:100%; height:100%; }
-.hero-overlay {
-  position:relative; z-index:2; height:100%;
-  display:flex; flex-direction:column;
-  justify-content:center; align-items:center;
-  text-align:center; padding:2rem;
-  background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.9));
+/* ---------- HERO (FIXED) ---------- */
+.hero { 
+  position:relative; 
+  height:90vh; 
+  overflow:hidden; 
+  background:#000;
 }
-.hero-overlay h1 { font-size:3rem; margin-bottom:1rem; }
-.hero-overlay p { max-width:650px; font-size:1.2rem; opacity:0.92; margin-bottom:2rem; }
+
+/* video stays BEHIND everything */
+.hero iframe { 
+  position:absolute; 
+  inset:0; 
+  width:100%; 
+  height:100%; 
+  z-index:0;
+  pointer-events:none;
+}
+
+/* overlay sits ON TOP and fills hero */
+.hero-overlay {
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:2rem;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.9)
+  );
+}
+
+.hero-overlay h1 { 
+  font-size:3rem; 
+  margin-bottom:1rem; 
+}
+
+.hero-overlay p { 
+  max-width:650px; 
+  font-size:1.2rem; 
+  opacity:0.92; 
+  margin-bottom:2rem; 
+}
+
 
 /* HERO BUTTONS */
 .hero-actions{
