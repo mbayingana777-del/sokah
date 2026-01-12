@@ -5,6 +5,148 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sokah Caribbean BBQ</title>
 <style>
+  /* ---------- MOBILE OPTIMIZATION ---------- */
+
+/* 1) Prevent horizontal scrolling */
+html, body { overflow-x: hidden; }
+
+/* 2) Better tap targets + text rendering */
+a, button { -webkit-tap-highlight-color: transparent; }
+button, .hero-actions a, .featured-item a { min-height: 44px; } /* thumb-friendly */
+
+/* --- Tablet and below --- */
+@media (max-width: 900px){
+  header{
+    padding:0.7rem 1rem;
+    gap:1rem;
+  }
+
+  /* Stack header content nicely */
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  header h1{
+    width:100%;
+    justify-content:flex-start;
+  }
+
+  .contact-info-flex{
+    width:100%;
+    justify-content:flex-start;
+    gap:0.75rem 1.25rem;
+  }
+
+  .contact-info-flex p{
+    font-size:0.92rem;
+  }
+
+  /* Featured section spacing */
+  .featured{
+    padding:4rem 1.25rem;
+  }
+
+  .featured h2{
+    font-size:2.2rem;
+  }
+
+  .featured-grid{
+    gap:1.25rem;
+  }
+}
+
+/* --- Mobile --- */
+@media (max-width: 600px){
+
+  /* Header: logo slightly larger on mobile without growing header too much */
+  header h1 img{
+    height:44px;         /* adjust if you want 48px */
+    max-width:70vw;
+    object-fit:contain;
+  }
+
+  .contact-info-flex p{
+    font-size:0.9rem;
+  }
+
+  /* Hero: make readable and not overwhelming */
+  .hero{ height:82vh; }  /* a bit shorter for phones */
+
+  .hero-overlay{
+    padding:1.5rem 1.1rem;
+  }
+
+  .hero-overlay h1{
+    font-size:2.05rem;
+    line-height:1.1;
+    margin-bottom:0.75rem;
+  }
+
+  .hero-overlay p{
+    font-size:1.02rem;
+    line-height:1.45;
+    margin-bottom:1.25rem;
+  }
+
+  /* Buttons stack */
+  .hero-actions{
+    width:100%;
+    gap:0.75rem;
+  }
+
+  .hero-actions a{
+    width:100%;
+    text-align:center;
+    padding:0.95rem 1.2rem;
+  }
+
+  /* Featured cards: tighten */
+  .featured-item{
+    padding-top:120px;
+  }
+
+  .featured-item-img{
+    width:120px;
+    height:120px;
+  }
+
+  /* Story + Signup: better padding */
+  .story{
+    padding:3.25rem 1.25rem;
+    margin:0 auto 3rem;
+  }
+
+  .story h2{ font-size:2.05rem; margin-bottom:1.25rem; }
+  .story p{ font-size:1rem; line-height:1.65; }
+
+  .signup{
+    padding:3.5rem 1.25rem 4.25rem;
+  }
+
+  /* Signup form stacks full width */
+  .signup form{
+    display:flex;
+    flex-direction:column;
+    gap:0.75rem;
+    align-items:center;
+  }
+
+  .signup input[type="email"],
+  .signup button{
+    width:min(520px, 100%);
+    margin:0 !important;
+  }
+
+  .signup input[type="email"]{
+    padding:0.95rem 1rem;
+  }
+
+  .signup button{
+    padding:0.95rem 1rem;
+  }
+}
+
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family:"Helvetica Neue", Arial, sans-serif;
