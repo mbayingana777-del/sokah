@@ -6,16 +6,7 @@
 <title>Sokah Caribbean BBQ</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body{
-  font-family:"Helvetica Neue", Arial, sans-serif;
-  color:#fff;
-  scroll-behavior:smooth;
-
-  /* BACKGROUND PHOTO */
-  background: url("sokah-bg.jpg") center / cover no-repeat fixed;
-  position:relative;
-}
-
+body { font-family:"Helvetica Neue", Arial, sans-serif; background:#000; color:#fff; scroll-behavior:smooth; }
 
 /* ---------- HEADER ---------- */
 header{
@@ -53,7 +44,6 @@ header h1 img{ height:40px; }
 .rating { font-weight:bold; }
 
 /* ---------- HERO ---------- */
-/* ---------- HERO (FIXED) ---------- */
 .hero { 
   position:relative; 
   height:90vh; 
@@ -101,7 +91,6 @@ header h1 img{ height:40px; }
   margin-bottom:2rem; 
 }
 
-
 /* HERO BUTTONS */
 .hero-actions{
   display:flex;
@@ -145,10 +134,24 @@ header h1 img{ height:40px; }
   transform:translateX(-50%);
 }
 .featured-item h4 { margin:1rem 0 .5rem; font-size:1.2rem; }
+
 .featured-item a {
   display:inline-block; margin-bottom:1.5rem; padding:.5rem 1.2rem;
   border-radius:25px; background:#f7c948; color:#000; font-weight:bold; text-decoration:none;
 }
+
+/* Disabled button style for the 3 items not on menu yet */
+.featured-item .disabled-link{
+  display:inline-block; margin-bottom:1.5rem; padding:.5rem 1.2rem;
+  border-radius:25px;
+  background:#555;
+  color:#ddd;
+  font-weight:bold;
+  text-decoration:none;
+  cursor:not-allowed;
+  opacity:0.85;
+}
+
 .featured-full-btn {
   margin-top:2rem;
   display:inline-block; padding:1rem 2.5rem;
@@ -194,9 +197,8 @@ footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
 <!-- HEADER -->
 <header>
   <h1>
-  <img src="sokah-logo.png" alt="Sokah Caribbean BBQ">
-</h1>
-
+    <img src="sokah-logo.png" alt="Sokah Caribbean BBQ">
+  </h1>
 
   <div class="contact-info contact-info-flex">
     <p><span class="status-dot" style="background:green;"></span> (724) 385-0383</p>
@@ -231,75 +233,75 @@ footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('pulled-pork.jpg');"></div>
       <h4>Smoked Pulled Pork</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a target="_blank" rel="noopener" href="https://sokahbbq.com/menu?item=pulled-pork-sandwich-VP08">Order Now</a>
     </div>
 
     <!-- 2 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('jerk-chicken.jpg');"></div>
       <h4>Jerk Chicken</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a target="_blank" rel="noopener" href="https://sokahbbq.com/menu?item=jerk-chicken-mFqz">Order Now</a>
     </div>
 
     <!-- 3 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('firecracker-shrimp.jpg');"></div>
       <h4>Firecracker Shrimp</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a target="_blank" rel="noopener" href="https://sokahbbq.com/menu?item=firecracker-shrimp-ZCp5">Order Now</a>
     </div>
 
     <!-- 4 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('oxtail.jpg');"></div>
       <h4>Oxtail Platter</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a target="_blank" rel="noopener" href="https://sokahbbq.com/menu?item=small-platter-NuJ1">Order Now</a>
     </div>
 
     <!-- 5 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('smoked-brisket.jpg');"></div>
       <h4>Smoked Brisket</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a target="_blank" rel="noopener" href="https://sokahbbq.com/menu?item=brisket-id3f">Order Now</a>
     </div>
 
     <!-- 6 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('beach-bum.jpg');"></div>
       <h4>Beach Bum Platter</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a target="_blank" rel="noopener" href="https://sokahbbq.com/menu?item=large-platter-FAOU">Order Now</a>
     </div>
 
     <!-- 7 -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('rasta-ribs.jpg');"></div>
       <h4>Rasta Ribs</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a target="_blank" rel="noopener" href="https://sokahbbq.com/menu?item=spare-ribs-RrkU">Order Now</a>
     </div>
 
-    <!-- 8 -->
+    <!-- 8 (NOT ON MENU YET) -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('caribbean-lobster.jpg');"></div>
       <h4>Caribbean Lobster</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a class="disabled-link" href="javascript:void(0)">Coming Soon</a>
     </div>
 
-    <!-- 9 -->
+    <!-- 9 (NOT ON MENU YET) -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('jamaican-salad.jpg');"></div>
       <h4>Jamaican Salad</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a class="disabled-link" href="javascript:void(0)">Coming Soon</a>
     </div>
 
-    <!-- 10 -->
+    <!-- 10 (NOT ON MENU YET) -->
     <div class="featured-item">
       <div class="featured-item-img" style="background-image:url('spicy-wings.jpg');"></div>
       <h4>Spicy Wings</h4>
-      <a href="https://sokahbbq.com/menu">Order Now</a>
+      <a class="disabled-link" href="javascript:void(0)">Coming Soon</a>
     </div>
 
   </div>
 
-  <a href="https://sokahbbq.com/menu" class="featured-full-btn">See Full Menu</a>
+  <a href="https://sokahbbq.com/menu" class="featured-full-btn" target="_blank" rel="noopener">See Full Menu</a>
 </section>
 
 <!-- OUR STORY -->
@@ -327,7 +329,6 @@ footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
   </p>
 </section>
 
-
 <!-- EMAIL SIGNUP -->
 <section class="signup">
   <h2>Join the Sokah Family</h2>
@@ -343,9 +344,5 @@ footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
   © 2026 Sokah Caribbean BBQ — Ambridge, PA
 </footer>
 
-</body>
-</html>
-</body>
-</html>
 </body>
 </html>
