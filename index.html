@@ -4,32 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sokah Caribbean BBQ</title>
-
 <style>
-/* ---------- GLOBAL ---------- */
 * { margin:0; padding:0; box-sizing:border-box; }
-
-body{
-  font-family:"Helvetica Neue", Arial, sans-serif;
-  color:#fff;
-  scroll-behavior:smooth;
-  background: url("sokah-bg.jpg") center / cover no-repeat fixed;
-  position:relative;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.72);
-  z-index:-1;
-}
+body { font-family:"Helvetica Neue", Arial, sans-serif; background:#000; color:#fff; scroll-behavior:smooth; }
 
 /* ---------- HEADER ---------- */
 header{
-  background:rgba(17,17,17,0.9);
-  backdrop-filter: blur(8px);
-  padding:0.6rem 1.25rem;
+  background:#111;
+  padding:0.4rem 1.25rem;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -37,27 +19,12 @@ header{
   top:0;
   z-index:100;
   border-bottom:2px solid #222;
+  gap:1.5rem;
 }
+header h1{ display:flex; align-items:center; }
+header h1 img{ height:40px; }
 
-/* LOGO — POPS WITHOUT GROWING HEADER */
-header h1{
-  display:flex;
-  align-items:center;
-  background: rgba(0,0,0,0.35);
-  padding:0.35rem 0.75rem;
-  border-radius:14px;
-  border:1px solid rgba(247,201,72,0.25);
-}
-
-header h1 img{
-  height:96px;
-  display:block;
-  filter:
-    drop-shadow(0 6px 16px rgba(0,0,0,0.85))
-    drop-shadow(0 0 14px rgba(247,201,72,0.28));
-}
-
-/* contact info */
+/* contact info side-by-side */
 .contact-info-flex{
   display:flex;
   align-items:center;
@@ -66,30 +33,37 @@ header h1 img{
   flex-wrap:wrap;
 }
 .contact-info-flex p{
+  margin:0;
   font-size:0.95rem;
   display:flex;
   align-items:center;
   gap:0.45rem;
   white-space:nowrap;
 }
-.status-dot { width:10px; height:10px; border-radius:50%; background:green; }
+.status-dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
 .rating { font-weight:bold; }
 
 /* ---------- HERO ---------- */
-.hero{
-  position:relative;
-  height:90vh;
-  overflow:hidden;
+/* ---------- HERO (FIXED) ---------- */
+.hero { 
+  position:relative; 
+  height:90vh; 
+  overflow:hidden; 
+  background:#000;
 }
-.hero iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
+
+/* video stays BEHIND everything */
+.hero iframe { 
+  position:absolute; 
+  inset:0; 
+  width:100%; 
+  height:100%; 
   z-index:0;
   pointer-events:none;
 }
-.hero-overlay{
+
+/* overlay sits ON TOP and fills hero */
+.hero-overlay {
   position:absolute;
   inset:0;
   z-index:2;
@@ -99,166 +73,139 @@ header h1 img{
   align-items:center;
   text-align:center;
   padding:2rem;
-  background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.9));
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.9)
+  );
 }
-.hero-overlay h1{
-  font-size:3rem;
-  margin-bottom:1rem;
+
+.hero-overlay h1 { 
+  font-size:3rem; 
+  margin-bottom:1rem; 
 }
-.hero-overlay p{
-  max-width:650px;
-  font-size:1.2rem;
-  opacity:0.92;
-  margin-bottom:2rem;
+
+.hero-overlay p { 
+  max-width:650px; 
+  font-size:1.2rem; 
+  opacity:0.92; 
+  margin-bottom:2rem; 
 }
+
+
+/* HERO BUTTONS */
 .hero-actions{
   display:flex;
   gap:1rem;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 .hero-actions a{
+  display:inline-block;
   padding:1rem 2.2rem;
   border-radius:40px;
   font-weight:bold;
   text-decoration:none;
 }
-.hero-actions .primary{ background:#f7c948; color:#000; }
-.hero-actions .secondary{ border:2px solid #f7c948; color:#f7c948; }
-
-/* ---------- FEATURED ---------- */
-.featured{
-  padding:6rem 2rem;
-  text-align:center;
-  background:rgba(0,0,0,0.55);
-  backdrop-filter: blur(4px);
-}
-.featured h2{ font-size:2.8rem; margin-bottom:2.5rem; }
-.featured-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:2rem;
-}
-.featured-item{
-  background:#1c1c1c;
-  border-radius:16px;
-  overflow:hidden;
-  position:relative;
-  padding-top:140px;
-}
-.featured-item-img{
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  background-size:cover;
-  background-position:center;
-  border:4px solid #222;
-  position:absolute;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-}
-.featured-item h4{ margin:1rem 0 .5rem; }
-.featured-full-btn{
-  margin-top:2rem;
-  display:inline-block;
-  padding:1rem 2.5rem;
-  border-radius:40px;
+.hero-actions .primary{
   background:#f7c948;
   color:#000;
-  font-weight:bold;
-  text-decoration:none;
+}
+.hero-actions .secondary{
+  border:2px solid #f7c948;
+  color:#f7c948;
+  background:transparent;
 }
 
-/* ---------- STORY (REFINED, NOT BIGGER) ---------- */
-.story{
-  padding:5rem 2rem;
+/* ---------- FEATURED ---------- */
+.featured { padding:6rem 2rem; text-align:center; }
+.featured h2 { font-size:2.8rem; margin-bottom:2.5rem; }
+.featured-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; }
+.featured-item {
+  background:#1c1c1c; border-radius:16px; overflow:hidden;
+  transition:transform .2s ease, box-shadow .2s ease;
+  position:relative; padding-top:140px; text-align:center;
+}
+.featured-item:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,.4); }
+.featured-item-img {
+  width:140px; height:140px; border-radius:50%;
+  background-size:cover; background-position:center;
+  background-repeat:no-repeat;
+  border:4px solid #222;
+  position:absolute; top:0; left:50%;
+  transform:translateX(-50%);
+}
+.featured-item h4 { margin:1rem 0 .5rem; font-size:1.2rem; }
+.featured-item a {
+  display:inline-block; margin-bottom:1.5rem; padding:.5rem 1.2rem;
+  border-radius:25px; background:#f7c948; color:#000; font-weight:bold; text-decoration:none;
+}
+.featured-full-btn {
+  margin-top:2rem;
+  display:inline-block; padding:1rem 2.5rem;
+  border-radius:40px; background:#f7c948; color:#000; font-weight:bold; text-decoration:none;
+}
+
+/* ---------- OUR STORY ---------- */
+.story {
+  padding:6rem 2rem;
   background:#111;
-  max-width:900px;
-  margin:4rem auto;
+  max-width:1000px;
+  margin:0 auto 4rem;
   text-align:center;
-  border-radius:16px;
 }
-.story h2{
-  font-size:2.4rem;
-  margin-bottom:1rem;
-}
-.story p{
-  font-size:1.05rem;
-  line-height:1.6;
-  margin-bottom:1rem;
-  opacity:0.95;
-}
+.story h2 { font-size:2.8rem; margin-bottom:2rem; }
+.story p { font-size:1.05rem; line-height:1.7; opacity:.9; margin-bottom:1.5rem; }
 
-/* ---------- SIGNUP (PROFESSIONAL) ---------- */
-.signup{
-  padding:4.5rem 2rem 5.5rem;
-  text-align:center;
-  background:rgba(0,0,0,0.55);
-  backdrop-filter: blur(4px);
-}
-.signup h2{
-  font-size:2.2rem;
-  margin-bottom:0.75rem;
-}
-.signup p{
-  max-width:520px;
-  margin:0 auto 1.75rem;
-  opacity:0.9;
-}
-.signup form{
-  display:flex;
-  justify-content:center;
-  gap:0.75rem;
-  flex-wrap:wrap;
-}
-.signup input{
-  padding:0.85rem 1.1rem;
-  border-radius:28px;
-  border:none;
-  min-width:260px;
-}
-.signup button{
-  padding:0.85rem 1.6rem;
-  border-radius:28px;
-  border:none;
-  background:#f7c948;
-  font-weight:bold;
-  cursor:pointer;
-}
+/* ---------- EMAIL SIGNUP ---------- */
+.signup { padding:5rem 2rem 6rem; text-align:center; }
+.signup h2 { font-size:2.5rem; margin-bottom:1rem; }
+.signup p { max-width:600px; margin:0 auto 2rem; opacity:.9; }
+.signup input[type="email"] { padding:.8rem 1rem; border-radius:25px; border:none; margin-right:.5rem; }
+.signup button { padding:.8rem 1.5rem; border-radius:25px; border:none; background:#f7c948; color:#000; font-weight:bold; cursor:pointer; }
 
 /* ---------- FOOTER ---------- */
-footer{
-  padding:2rem;
-  text-align:center;
-  background:#0d0d0d;
-  opacity:.9;
-}
+footer { padding:2rem; text-align:center; background:#0d0d0d; opacity:.9; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:800px){
-  header h1 img{ height:72px; }
+  header{ padding:0.65rem 1rem; }
+  header h1 img{ height:36px; }
+  .contact-info-flex{ gap:1rem; }
 }
 @media (max-width:600px){
   .hero-overlay h1{ font-size:2rem; }
+  .featured-item-img{ width:120px; height:120px; margin-top:-60px; }
+  .featured-item{ padding-top:60px; }
 }
 </style>
 </head>
-
 <body>
 
+<!-- HEADER -->
 <header>
-  <h1><img src="sokah-logo.png" alt="Sokah Caribbean BBQ"></h1>
-  <div class="contact-info-flex">
-    <p><span class="status-dot"></span> (724) 385-0383</p>
-    <p>2316 Duss Ave, Ambridge, PA</p>
+  <h1>
+  <img src="sokah-logo.png" alt="Sokah Caribbean BBQ">
+</h1>
+
+
+  <div class="contact-info contact-info-flex">
+    <p><span class="status-dot" style="background:green;"></span> (724) 385-0383</p>
+    <p>2316 Duss Ave Ambridge, PA 15003</p>
     <p class="rating">⭐ 4.9 / 5</p>
   </div>
 </header>
 
-<section class="hero">
-  <iframe src="https://www.youtube.com/embed/fFi_uzU1_pY?autoplay=1&mute=1&controls=0&loop=1&playlist=fFi_uzU1_pY"></iframe>
+<!-- HERO -->
+<section class="hero" id="home">
+  <iframe
+    src="https://www.youtube.com/embed/fFi_uzU1_pY?autoplay=1&mute=1&start=166&end=189&controls=0&loop=1&playlist=fFi_uzU1_pY&modestbranding=1&rel=0"
+    frameborder="0" allow="autoplay; fullscreen"></iframe>
+
   <div class="hero-overlay">
     <h1>Caribbean Smoke. Legendary Flavor.</h1>
-    <p>Texas BBQ infused with Caribbean soul.</p>
+    <p>As seen on Pittsburgh Today Live: Bold flavors, smoked to perfection.</p>
+
     <div class="hero-actions">
       <a class="primary" href="#featured">View Fan Favorites</a>
       <a class="secondary" href="https://sokahbbq.com/menu">See Full Menu</a>
@@ -266,46 +213,130 @@ footer{
   </div>
 </section>
 
+<!-- FEATURED ITEMS -->
 <section class="featured" id="featured">
   <h2>Fan Favorites</h2>
   <div class="featured-grid">
-    <div class="featured-item"><div class="featured-item-img" style="background-image:url('pulled-pork.jpg')"></div><h4>Smoked Pulled Pork</h4></div>
-    <div class="featured-item"><div class="featured-item-img" style="background-image:url('jerk-chicken.jpg')"></div><h4>Jerk Chicken</h4></div>
-    <div class="featured-item"><div class="featured-item-img" style="background-image:url('oxtail.jpg')"></div><h4>Oxtail</h4></div>
+
+    <!-- 1 -->
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('pulled-pork.jpg');"></div>
+      <h4>Smoked Pulled Pork</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <!-- 2 -->
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('jerk-chicken.jpg');"></div>
+      <h4>Jerk Chicken</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <!-- 3 -->
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('firecracker-shrimp.jpg');"></div>
+      <h4>Firecracker Shrimp</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <!-- 4 -->
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('oxtail.jpg');"></div>
+      <h4>Oxtail Platter</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <!-- 5 -->
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('smoked-brisket.jpg');"></div>
+      <h4>Smoked Brisket</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <!-- 6 -->
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('beach-bum.jpg');"></div>
+      <h4>Beach Bum Platter</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <!-- 7 -->
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('rasta-ribs.jpg');"></div>
+      <h4>Rasta Ribs</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <!-- 8 -->
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('caribbean-lobster.jpg');"></div>
+      <h4>Caribbean Lobster</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <!-- 9 -->
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('jamaican-salad.jpg');"></div>
+      <h4>Jamaican Salad</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
+    <!-- 10 -->
+    <div class="featured-item">
+      <div class="featured-item-img" style="background-image:url('spicy-wings.jpg');"></div>
+      <h4>Spicy Wings</h4>
+      <a href="https://sokahbbq.com/menu">Order Now</a>
+    </div>
+
   </div>
-  <a class="featured-full-btn" href="https://sokahbbq.com/menu">See Full Menu</a>
+
+  <a href="https://sokahbbq.com/menu" class="featured-full-btn">See Full Menu</a>
 </section>
 
+<!-- OUR STORY -->
 <section class="story" id="story">
   <h2>Our Story</h2>
+
   <p><strong>The Soul of the Caribbean, Smoked in Texas Style</strong></p>
+
   <p>
-    Sokah Caribbean BBQ was built on people, culture, and patience —
-    bringing together Texas smoke and Caribbean spirit to create food
-    meant to be shared.
+    Sokah Caribbean BBQ was built on more than flavor — it was built on people.
+    We bring together the deep smoke of Texas barbecue and the bold spirit of
+    the Caribbean to create food that brings everyone to the table.
   </p>
+
   <p>
-    Led by Executive Chef <strong>Justin Burrus</strong> and Pitmaster
-    <strong>Cory Brennan</strong>, every dish is slow-crafted with pride.
-    Nothing rushed. Nothing overlooked.
+    Executive Chef <strong>Justin Burrus</strong> and Pitmaster
+    <strong>Cory Brennan</strong> take their time with every dish — slow-smoking,
+    seasoning, and finishing each plate with care. Nothing is rushed, and every
+    bite reflects the pride behind the process.
   </p>
+
   <p>
-    When you eat at Sokah, you’re not just a guest — you’re family.
+    From jerk chicken to smoked brisket and signature oxtail,
+    when you eat at Sokah, you’re not just a guest — you’re family.
   </p>
 </section>
 
+
+<!-- EMAIL SIGNUP -->
 <section class="signup">
   <h2>Join the Sokah Family</h2>
-  <p>Get updates on specials, events, and new menu items.</p>
+  <p>Get exclusive deals, early access to events, and special menu updates delivered straight to your inbox.</p>
   <form>
     <input type="email" placeholder="Your Email">
     <button type="submit">Sign Up</button>
   </form>
 </section>
 
+<!-- FOOTER -->
 <footer>
   © 2026 Sokah Caribbean BBQ — Ambridge, PA
 </footer>
 
+</body>
+</html>
+</body>
+</html>
 </body>
 </html>
